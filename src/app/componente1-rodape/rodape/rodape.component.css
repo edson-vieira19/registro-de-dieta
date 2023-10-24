@@ -1,18 +1,10 @@
-footer{
-
+:host{
     background-color: #BFE338;
-    height: 150px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-h1{
-    font-size: 40px;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .centralizado{
     text-align: center;
-    vertical-align: middle;
-    
 }
