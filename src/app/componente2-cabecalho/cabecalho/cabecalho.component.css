@@ -1,36 +1,18 @@
-header {
-    background-color: #BFE338;
-    color: black;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    margin:0px;
-    padding: 0;
-  }
-  .header-content {
-    text-align: center;
-    margin:0;
-  }
+
+.verde {
+  background-color: #BFE338;
+  padding-left: 20px;
+  height: 80px;
+}
+
+.logo{
+  height: 80px;
+  width: 80x;
+}
+
   
-  h1 {
-    font-size: 40px;
-    margin-top: 0;
-  }
+    
+
   
-  nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: flex-start;
-  }
   
-  nav li {
-    margin-right: 10px;
-  }
-  
-  a {
-    text-decoration: none;
-    color: black;
-  }
+ 

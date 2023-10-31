@@ -1,13 +1,21 @@
-<header>
-    <div class="header-content">
-    <h1>Registro de Dieta!</h1>
-    <nav>
-      <ul>
-        <li><a routerLink="/">Página Inicial</a></li>
-        <li><a routerLink="/sobre">Sobre</a></li>
-        <li><a routerLink="/contato">Contato</a></li>
+<div class="navbar-fixed" style="z-index: 1001 !important">
+  <nav class="verde">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">
+        <img class="logo" src="assets/resources/images/logo.jpeg">
+      </a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a routerLink="/inicio" class="flow-text">Início</a></li>
+        <li><a routerLink="/sobre" class="flow-text">Sobre</a></li>
+        <li><a routerLink="/contato" class="flow-text">Contato</a></li>  
       </ul>
-    </nav>
     </div>
-  </header>
-  
+  </nav>
+</div>
+
+<ul class="sidenav" id="mobile-demo">
+        <li style="margin-top: 80px;"><a routerLink="/inicio" class="flow-text">Início</a></li>
+        <li><a routerLink="/sobre" class="flow-text">Sobre</a></li>
+        <li><a routerLink="/contato" class="flow-text">Contato</a></li>
+</ul>

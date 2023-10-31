@@ -1,10 +1,10 @@
-:host{
+footer{
     background-color: #BFE338;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  
 }
 
 .centralizado{
+    display: flex;
     text-align: center;
+    justify-content: center;
 }
