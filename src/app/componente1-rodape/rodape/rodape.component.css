@@ -1,18 +1,11 @@
 footer{
-
     background-color: #BFE338;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-h1{
-    font-size: 40px;
+  
 }
 
 .centralizado{
+    display: flex;
     text-align: center;
-    vertical-align: middle;
-    
+    justify-content: center;
+   
 }

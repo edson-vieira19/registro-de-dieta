@@ -1,20 +1,27 @@
+<footer>
 <app-cabecalho></app-cabecalho>
+</footer>
 
 
+<main>
+    
+<router-outlet>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex vel sapiente ad inventore explicabo dolorem officiis porro aperiam cumque? Nobis molestias ex dolores laboriosam optio, iste cupiditate soluta corrupti voluptate.</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aperiam aut tempore dolores a placeat nemo autem rerum perspiciatis, aliquid error earum consectetur? Doloremque adipisci placeat ipsam fugit natus omnis!</p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <!-- utilizndo o property biding e interpolation -->
+    
+    <img class="image" [src]="imageUrl" 
+    alt="food" height= "{{ altura }}" width=" {{ largura }} ">
+
+
+</router-outlet>
+
+
+<!--Utilizando property biding na imagem-->
+
+   
+
+
+</main>
 
 
 
