@@ -4,7 +4,22 @@
 
 
 <main>
-<router-outlet></router-outlet>
+    
+<router-outlet>
+
+    <!-- utilizndo o property biding e interpolation -->
+    
+    <img class="image" [src]="imageUrl" 
+    alt="food" height= "{{ altura }}" width=" {{ largura }} ">
+
+
+</router-outlet>
+
+
+<!--Utilizando property biding na imagem-->
+
+   
+
 
 </main>
 
