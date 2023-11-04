@@ -1,0 +1,14 @@
+/* .espaco-botao{
+    margin-right: 20px;
+    margin-left: 10px;
+
+} */
+
+
+#botoes{
+
+    display: flex;
+    justify-content: space-around;
+    padding-left: 40px;
+}
+

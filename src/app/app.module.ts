@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RodapeComponent } from './componente1-rodape/rodape/rodape.component';
 import { CabecalhoComponent } from './componente2-cabecalho/cabecalho/cabecalho.component';
+import { TelaLoginComponent } from './tela-login/tela-login.component';
+import { FormsModule } from '@angular/forms';
+import { TelaCadastroComponent } from './tela-cadastro/tela-cadastro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RodapeComponent,
-    CabecalhoComponent
+    CabecalhoComponent,
+    TelaLoginComponent,
+    TelaCadastroComponent,
+    // FormsModule,
   ],
   imports: [
     BrowserModule,

@@ -1,28 +1,19 @@
-<footer>
+<header>
 <app-cabecalho></app-cabecalho>
-</footer>
+</header>
 
 
-<main>
-    
+<main>    
 <router-outlet>
 
-    <!-- utilizndo o property biding e interpolation -->
     
-    <img class="image" [src]="imageUrl" 
-    alt="food" height= "{{ altura }}" width=" {{ largura }} ">
-
+    <!-- <app-tela-login></app-tela-login> -->
+    <app-tela-cadastro></app-tela-cadastro>
 
 </router-outlet>
-
-
-<!--Utilizando property biding na imagem-->
-
-   
-
-
 </main>
 
 
-
+<footer>
 <app-rodape></app-rodape>
+</footer>
