@@ -8,6 +8,7 @@ import { CabecalhoComponent } from './componente2-cabecalho/cabecalho/cabecalho.
 import { TelaLoginComponent } from './tela-login/tela-login.component';
 import { FormsModule } from '@angular/forms';
 import { TelaCadastroComponent } from './tela-cadastro/tela-cadastro.component';
+import { DiarioAlimentarComponent } from './diario-alimentar/diario-alimentar.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TelaCadastroComponent } from './tela-cadastro/tela-cadastro.component';
     CabecalhoComponent,
     TelaLoginComponent,
     TelaCadastroComponent,
+    DiarioAlimentarComponent,
     // FormsModule,
   ],
   imports: [
