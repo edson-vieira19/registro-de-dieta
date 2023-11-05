@@ -1,0 +1,85 @@
+<!--conteiner principal-->
+<div class="container">
+    <!--Linha Principal-->
+    <div class="row">
+        <!--metade esquerda-->
+        <div class="col s12 m8 l8">
+            <div class="row" style="padding: 20px;">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="nome-alimento"
+                             type="text" class="validate">
+                             <label for="nome-alimento">Alimento:</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="carboidrato"
+                             type="number" class="validate">
+                             <label for="carboidrato">Carboidrato [g]</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="quantidade"
+                             type="text" class="validate">
+                             <label for="quantidade">Quantidade [g]</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="proteina"
+                             type="number" class="validate">
+                             <label for="proteina">Proteinas [g]</label>
+                        </div>     
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <select>
+                                <option value="" disabled selected>Café da Manhã</option>
+                                <option value="cafe-manha">Café da Manhã</option>
+                                <option value="almoco">Almoço</option>
+                                <option value="cafe-tarde">Café da Tarde</option>
+                                <option value="jantar">jantar</option>
+                            </select>
+                            <label>Qual Refeição?</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="gordura"
+                             type="number" class="validate">
+                             <label for="gordura">Gorduras [g]</label>
+                        </div> 
+                     </div>
+                     <!--Botoes-->
+                     <div class="row" style="padding: 20px;">
+                        <div class="col s6 push-s2">
+                          <a  id ="btn-voltar2" class="waves-effect waves-light btn red"
+                            routerLink="/diario-alimentar" routerLinkActive="active">Voltar</a>
+                        </div>
+                        <div class="col s6">
+                          <a class="waves-effect waves-light btn green"
+                          routerLink="/diario-alimentar" routerLinkActive="active"
+                           >Adicionar</a>
+                        </div>
+                      </div>    
+                </form>
+            </div>
+        </div>
+        <!--metade direita-->
+        <div class="col s12 m4 l4 push-m1 push-l1" style="padding: 20px 0 20px 0;">
+            <div>
+                <img class="responsive-img" src="/assets/resources/images/diet-plan.jpg" alt="plano-dieta">
+            </div>
+            <!--card-->
+            <div class="row">
+            <div class="card lime lighten-5">
+                <div class="card-content black-text">
+                  <p>Para Informações de valores nutricionais de alimentos
+                    consulte a Tabela Brasileira de Composição de alimentos TACO disponivel no link abaixo: 
+                  </p>
+                </div>
+                <div class="card-action">
+                  <a href="https://www.cfn.org.br/wp-content/uploads/2017/03/taco_4_edicao_ampliada_e_revisada.pdf" target="_blank">https://www.cfn.org.br/wp...</a>
+                </div>
+              </div>
+            </div>  
+        </div>
+    </div>
+</div>
