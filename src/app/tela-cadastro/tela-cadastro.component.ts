@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../Model/usuario';
 
 @Component({
   selector: 'app-tela-cadastro',
@@ -7,11 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TelaCadastroComponent implements OnInit{
 
+    usuario!: Usuario;
 
     ngOnInit(): void {
       var elems = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems);
     }
+
+
+   
+
+
+
+
 
 
 }

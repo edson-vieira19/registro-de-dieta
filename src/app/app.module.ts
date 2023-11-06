@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { TelaCadastroComponent } from './tela-cadastro/tela-cadastro.component';
 import { DiarioAlimentarComponent } from './diario-alimentar/diario-alimentar.component';
 import { AdicionarAlimentoComponent } from './adicionar-alimento/adicionar-alimento.component';
+import { AlterarAlimentoComponent } from './alterar-alimento/alterar-alimento.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AdicionarAlimentoComponent } from './adicionar-alimento/adicionar-alime
     TelaCadastroComponent,
     DiarioAlimentarComponent,
     AdicionarAlimentoComponent,
+    AlterarAlimentoComponent,
     // FormsModule,
   ],
   imports: [
