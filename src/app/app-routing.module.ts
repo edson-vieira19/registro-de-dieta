@@ -12,7 +12,8 @@ const routes: Routes = [
   {path: 'diario-alimentar', component:DiarioAlimentarComponent },
   {path: 'adicionar-alimento', component:AdicionarAlimentoComponent},
   {path: 'alterar-alimento', component:AlterarAlimentoComponent},
-  {path: '', redirectTo: 'login', pathMatch: 'full'}
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: 'diario-alimentar/:id', component: DiarioAlimentarComponent }
 
 
 ];

@@ -1,28 +1,33 @@
+import { Alimento } from "./alimento";
+
 export class Usuario{
+id!:string;    
 nome:string;
 email:string;
-idade:number;
-peso:number;
-altura:number;
-nivelDeAtividae:number;
-necessidadeCalorica:number;
+idade:any;
+peso:any;
+altura:any;
+atividade:number;
+necessidadeCalorica!:number;
+alimentos: Alimento[];
 
-constructor(nome:string, email:string, idade:number,peso:number, altura:number, nivelDeAtividade:number){
-    this.nome=nome;
-    this.email=email;
-    this.idade=idade;
-    this.peso=peso;
+constructor(nome:string, email:string, idade:any,peso:any, altura:any, atividade:number){
+    this.id = String(Math.round(Math.random() * 1000));
+    this.nome = nome;
+    this.email = email;
+    this.idade = idade;
+    this.peso = peso;
     this.altura = altura;
-    this.nivelDeAtividae=nivelDeAtividade;
-    this.necessidadeCalorica = this.calculaNecessidadeCalorica();
+    this.atividade = atividade;
+    this.alimentos = [];
 }
 
-    calculaNecessidadeCalorica():number {
+    calculaNecessidadeCalorica(){
     
     var tmb;
     //equação de Harris-Benetict
-    tmb = (13.7516*this.peso)+(5.0033*this.altura)-(6.755*this.idade)+66.47
-    return tmb*this.nivelDeAtividae;
+    tmb = (13.7516*this.peso)+(5.0033*this.altura)-(6.755*this.idade)+66.47;
+    this.necessidadeCalorica = Math.round(tmb*this.atividade);
     }
 
 }

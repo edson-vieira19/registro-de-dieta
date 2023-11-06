@@ -6,36 +6,50 @@
         <div class=" input-field col s6">
             <input
              id="nome" 
+             name="input-nome"
              type="text"
-             class="validate">
+             class="validate"
+             [(ngModel)]="usuario.nome"
+             />
             <label for="nome">Nome:</label>
         </div>
         <div class="input-field col s6">
-            <input id="email" type="email" class="validate">
+            <input
+             id="email"
+             name="input-email"   
+             type="email"
+            class="validate"
+            [(ngModel)]="usuario.email"
+            />
             <label for="email">email:</label>
         </div>
     </div>
         <div class="row">
             <div class="input-field col s6">
                 <input id="idade"
-                 type="number" class="validate" >
+                name="idade"
+                 type="number" class="validate"
+                 [(ngModel)]="usuario.idade"  />
                 <label for="idade">Idade</label>
             </div>
             <div class="input-field col s6">
                 <input id="peso" name="peso" type="number" 
-                class="validate">
+                class="validate"
+                [(ngModel)]="usuario.peso"
+                />
                 <label for="peso">Peso [Kg]</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input id="altura" name="altuar" type="number" 
-                class="validate">
+                <input id="altura" name="altura" type="number" 
+                class="validate"
+                [(ngModel)]="usuario.altura"
+                />
                 <label for="altura">Altura [cm]</label>
             </div>
             <div class="input-field col s6">
-                <select>
-                    <option value="" disabled selected>sedentario</option>
+                <select name="atividade" [(ngModel)]="usuario.atividade">
                     <option value="1.2">Sedentário</option>
                     <option value="1.375">Levemente Ativo</option>
                     <option value="1.55">Moderadamente Ativo</option>
@@ -67,15 +81,11 @@
             </div>
             <div class="col s6">
               <a class="waves-effect waves-light btn green"
-               routerLink="/diario-alimentar" routerLinkActive="active"
+               (click)="navigateToDiarioAlimentar(usuario)"
                >Cadastrar</a>
             </div>
           </div>
         </div>
     </form>
-
-
-
-
 </div>
 </div>
