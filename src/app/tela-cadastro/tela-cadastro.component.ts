@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../Model/usuario';
+import { Router } from '@angular/router';
+import { Usuario } from './../Model/usuario';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-tela-cadastro',
@@ -8,19 +9,28 @@ import { Usuario } from '../Model/usuario';
 })
 export class TelaCadastroComponent implements OnInit{
 
-    usuario!: Usuario;
+    usuario!: Usuario
+
+    constructor(private router: Router){}
 
     ngOnInit(): void {
       var elems = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems);
+      
+      this.usuario = new Usuario('','',null, null, null,1.2);
+  
     }
 
+    //envia id do usuario via rota e armazena o web storage
+    navigateToDiarioAlimentar(usuario: any) {
 
-   
+      this.usuario.calculaNecessidadeCalorica();
 
+      localStorage.setItem(this.usuario.id.toString(), JSON.stringify(this.usuario));
 
-
-
+      this.router.navigate(['/diario-alimentar', this.usuario.id.toString()]);
+      
+    }
 
 
 }

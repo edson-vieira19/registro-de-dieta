@@ -22,11 +22,12 @@ import { AlterarAlimentoComponent } from './alterar-alimento/alterar-alimento.co
     DiarioAlimentarComponent,
     AdicionarAlimentoComponent,
     AlterarAlimentoComponent,
-    // FormsModule,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
