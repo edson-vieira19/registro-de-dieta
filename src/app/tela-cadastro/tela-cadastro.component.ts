@@ -17,7 +17,7 @@ export class TelaCadastroComponent implements OnInit{
       var elems = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems);
       
-      this.usuario = new Usuario('','',null, null, null,1.2);
+      this.usuario = new Usuario('','',0, 0, 0,1.2);
   
     }
 

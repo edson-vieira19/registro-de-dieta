@@ -35,9 +35,9 @@
             <div class="input-field col s6">
                 <input id="peso" name="peso" type="number" 
                 class="validate"
-                [(ngModel)]="usuario.peso"
-                />
-                <label for="peso">Peso [Kg]</label>
+                [(ngModel)]="usuario.peso"/>
+                <label for="peso">Peso [Kg]:</label>
+
             </div>
         </div>
         <div class="row">
@@ -50,6 +50,7 @@
             </div>
             <div class="input-field col s6">
                 <select name="atividade" [(ngModel)]="usuario.atividade">
+                    <option value="" disabled selected>escolha</option>
                     <option value="1.2">Sedentário</option>
                     <option value="1.375">Levemente Ativo</option>
                     <option value="1.55">Moderadamente Ativo</option>
