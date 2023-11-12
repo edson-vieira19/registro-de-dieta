@@ -1,0 +1,94 @@
+    <!--container-->
+<div class="container" style="margin-top: 20px;">
+    <!--linha principal-->
+<div class="row"> 
+    <!--metade esquerda-->
+    <div class="col s12 m7">  
+        <h5>Diário Alimentar: </h5> 
+        <!--colapsavel-->  
+        <ul class="collapsible">
+            <!--refeicao1-->
+            <li>
+                <div class="collapsible-header"><i class="material-icons">free_breakfast</i>Café da Manhã</div>
+                <div class="collapsible-body">
+                    <ul class="collection">
+                      <!-- Alimentos do Café da Manhã -->
+                      <li class="collection-item">1- Pão quant=50g carb=30g  prot=0g gord=0g calorias= 120</li>
+                      <!-- Outros alimentos do Café da Manhã aqui -->
+                    </ul>
+                </div>
+            </li> 
+            <!--refeicao2-->
+            <li>    
+                  <div class="collapsible-header"><i class="material-icons">local_dining</i>Almoço</div>
+                    <div class="collapsible-body">
+                    <ul class="collection">
+                      <!-- Alimentos do Almoço -->
+                      <li class="collection-item">bife de carne magra quant=100g carb=0g  prot=30g gord=15g calorias= 255</li>
+                      <!-- Outros alimentos do Almoço -->
+                    </ul>
+                  </div>
+            </li>
+            <!--refeicao3-->
+            <li>       
+                  <!--cafe da tarde-->
+                  <div class="collapsible-header"><i class="material-icons">free_breakfast</i>Café da Tarde</div>
+                    <div class="collapsible-body">
+                    <ul class="collection">
+                      <!-- Alimentos do Almoço -->
+                      <li class="collection-item">bife de carne magra quant=100g carb=0g  prot=30g gord=15g calorias= 255</li>
+                      <!-- Outros alimentos do Almoço -->
+                    </ul>
+                  </div>
+            </li>
+            <!--refeicao4-->
+            <li>
+                  <!--Jantar-->
+                  <div class="collapsible-header"><i class="material-icons">local_dining</i>Jantar</div>
+                    <div class="collapsible-body">
+                    <ul class="collection">
+                      <!-- Alimentos do Almoço -->
+                      <li class="collection-item">bife de carne magra quant=100g carb=0g  prot=30g gord=15g calorias= 255</li>
+                      <!-- Outros alimentos do Almoço -->
+                    </ul>
+                  </div>
+                  
+            </li>
+        </ul>
+        <!--Botoes-->
+        <div class="row" style="padding-top: 40px;">
+            <div class="col s6 m6 push-m1 push-s1">
+                <a class="waves-effect waves-light btn red"
+                routerLink="/alterar-alimento">alterar/excluir</a>
+            </div>
+            <div class="col s6 m6">
+                <a class="waves-effect waves-light btn green"
+                routerLink="/adicionar-alimento"
+                routerLinkActive="active">adicionar</a>
+            </div>
+        </div>
+        <!--Fim Botoes-->
+    </div>
+    <hr>
+    <!--metade direita-->
+    <div class="col s12 m5 push-s1 push-m1">
+        <div class="row"> <h6>Necessidade Calorica Diária:<strong> {{caloricNeeds}} Kcal</strong></h6></div>
+        <div class="row"> <h6>Total de Calorias Consumidas: 670 Kcal</h6></div>
+        <div class="row">
+            <!--grafico -->
+            <div id="grafico" class="container">
+                <div class="row">
+                    <div class="col s12 pull-s1 pull-m1">
+                      <div class="card">
+                        <div class="card-content">
+                          <canvas #donutchart width="250" height="250"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
