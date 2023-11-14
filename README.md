@@ -9,7 +9,7 @@ https://www.figma.com/file/vz1zpg18FFt2cU7hjemV9f/Registro-de-Dieta?type=design&
 
 
 # Checklist
-  Feito:
+  **Feito:**
 - [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 - [X] Utilizar componentes de um framework CSS, como Bootstrap, Materialize ou outro à sua escolha.
 - [X] Apresentar as telas com layout responsivo, adaptando-se a diferentes tamanhos de tela, usando um framework CSS ou implementações personalizadas.
@@ -19,7 +19,7 @@ https://www.figma.com/file/vz1zpg18FFt2cU7hjemV9f/Registro-de-Dieta?type=design&
 - [X] Mapear os componentes às rotas no módulo de rotas, criando uma estrutura de navegação eficiente.
 - [X] Permitir a navegação fluida entre as diferentes páginas do aplicativo por meio de links e botões de navegação
 - [X] Utilizar o armazenamento local (LocalStorage ou SessionStorage) para armazenar dados temporários, quando necessário.</br>           
-  Não Feito/A Fazer:
+  **Não Feito/A Fazer:**
 - [ ] Estabelecer a passagem de dados entre componentes por meio da hierarquia de componentes, empregando as anotações @Input e @Output.
 - [ ] Validar os campos do formulário com expressões regulares (REGEX) e apresentar as mensagens de erro.
 - [ ] Implementar máscaras em campos de formulário, quando necessário, para melhorar a experiência do usuário ao inserir dados.
