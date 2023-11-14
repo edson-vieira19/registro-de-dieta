@@ -20,6 +20,7 @@ https://www.figma.com/file/vz1zpg18FFt2cU7hjemV9f/Registro-de-Dieta?type=design&
 - [X] Permitir a navegação fluida entre as diferentes páginas do aplicativo por meio de links e botões de navegação
 - [X] Utilizar o armazenamento local (LocalStorage ou SessionStorage) para armazenar dados temporários, quando necessário.
 
+
   Não Feito/A Fazer:
 - [ ] Estabelecer a passagem de dados entre componentes por meio da hierarquia de componentes, empregando as anotações @Input e @Output.
 - [ ] Validar os campos do formulário com expressões regulares (REGEX) e apresentar as mensagens de erro.
