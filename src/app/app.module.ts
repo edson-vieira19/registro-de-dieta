@@ -11,6 +11,7 @@ import { TelaCadastroComponent } from './tela-cadastro/tela-cadastro.component';
 import { DiarioAlimentarComponent } from './diario-alimentar/diario-alimentar.component';
 import { AdicionarAlimentoComponent } from './adicionar-alimento/adicionar-alimento.component';
 import { AlterarAlimentoComponent } from './alterar-alimento/alterar-alimento.component';
+import { UsuarioService } from './services/usuario.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { AlterarAlimentoComponent } from './alterar-alimento/alterar-alimento.co
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

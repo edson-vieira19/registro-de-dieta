@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { UsuarioService } from './../services/usuario.service';
 import { Usuario } from './../Model/usuario';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
@@ -10,34 +10,41 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class TelaCadastroComponent implements OnInit, AfterViewInit{
 
-    usuario!: Usuario
+    usuario!:Usuario;
 
-    constructor(private router: Router){}
+    constructor(private usuarioService: UsuarioService ){
+
+    }
 
     ngOnInit(): void {
 
       var elems = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems);
-      
-      this.usuario = new Usuario('','',null, null, null,1.2);
-      
-      
+        
+      this.usuario = new Usuario('','',null, null, null,1.2,'masculino');
     }
 
     ngAfterViewInit(): void {
       //
     }
 
-    //envia id do usuario via rota e armazena o web storage
     navigateToDiarioAlimentar(usuario: any) {
 
       this.usuario.calculaNecessidadeCalorica();
 
-      localStorage.setItem(this.usuario.id.toString(), JSON.stringify(this.usuario));
+      this.usuarioService.salvar(this.usuario);
 
-      this.router.navigate(['/diario-alimentar', this.usuario.id.toString()]);
+      this.usuarioService.navigateToDiarioAlimentar(this.usuario)
       
     }
+
+    imprimeConsole(){
+
+      this.usuarioService.imprimeConsole(this.usuario);
+
+    }
+
+
 
 
 }
