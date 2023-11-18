@@ -10,30 +10,39 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="nome-alimento"
-                             type="text" class="validate">
+                            name="nome-alimento"
+                             type="text" class="validate"
+                             [(ngModel)]="alimento.nome">
                              <label for="nome-alimento">Alimento:</label>
                         </div>
                         <div class="input-field col s6">
                             <input id="carboidrato"
-                             type="number" class="validate">
+                            name="carboidrato"
+                             type="number" class="validate"
+                             [(ngModel)]="alimento.carboidrato">
                              <label for="carboidrato">Carboidrato [g]</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="quantidade"
-                             type="text" class="validate">
+                                name="quantidade"
+                             type="text" class="validate"
+                             [(ngModel)]="alimento.quantidade">
                              <label for="quantidade">Quantidade [g]</label>
                         </div>
                         <div class="input-field col s6">
                             <input id="proteina"
-                             type="number" class="validate">
+                            name="proteina"
+                             type="number" class="validate"
+                             [(ngModel)]="alimento.proteina">
                              <label for="proteina">Proteinas [g]</label>
                         </div>     
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <select>
+                            <select name="qualRefeicao"
+                             [(ngModel)]="qualRefeicao">
                                 <option value="cafe-manha">Café da Manhã</option>
                                 <option value="almoco">Almoço</option>
                                 <option value="cafe-tarde">Café da Tarde</option>
@@ -43,6 +52,8 @@
                         </div>
                         <div class="input-field col s6">
                             <input id="gordura"
+                            name="gordura"
+                            [(ngModel)]="alimento.gordura"
                              type="number" class="validate">
                              <label for="gordura">Gorduras [g]</label>
                         </div> 
@@ -55,7 +66,7 @@
                         </div>
                         <div class="col s6">
                           <a class="waves-effect waves-light btn green"
-                          routerLink="/diario-alimentar" routerLinkActive="active"
+                          (click)="adicionarAlimento()"
                            >Adicionar</a>
                         </div>
                       </div>    

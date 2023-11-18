@@ -1,15 +1,23 @@
 export class Alimento{
     nome:string;
-    carboidrato:number;
-    proteina:number;
-    gordura:number;
-    calorias:number;
+    quantidade:any;
+    carboidrato:any;
+    proteina:any;
+    gordura:any;
+    calorias:any;
 
-    constructor(nome:string,carboidrato:number, proteina:number, gordura:number){
+    constructor(nome:string,quantidade:any,carboidrato:any, proteina:any, gordura:any){
         this.nome = nome;
+        this.quantidade = quantidade;
         this.carboidrato = carboidrato;
         this.proteina = proteina;
         this.gordura = gordura;
-        this.calorias = carboidrato*4 + proteina*4 +gordura*9;
+        
     } 
+
+    calculaCalorias(){
+        this.calorias = this.carboidrato*4 + this.proteina*4 + this.gordura*9;
+    }
+
+
 }

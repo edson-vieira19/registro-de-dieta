@@ -1,94 +1,171 @@
 <h5 class="center-align">Preencha os seus dados:</h5>
 <div class="container">
-    <div class="row" style="padding: 20px;">
-    <form class="col s12">
-        <div class="row">
-        <div class=" input-field col s6">
-            <input
-             id="nome" 
-             name="input-nome"
-             type="text"
-             class="validate"
-             [(ngModel)]="usuario.nome"
-             />
-            <label for="nome">Nome:</label>
-        </div>
+  <div class="row" style="padding: 20px">
+    <form class="col s12" #form="ngForm"
+     (submit)="navigateToDiarioAlimentar(usuario)">
+      <div class="row">
         <div class="input-field col s6">
-            <input
-             id="email"
-             name="input-email"   
-             type="email"
+          <input
+            [(ngModel)]="usuario.nome"
+            id="nome"
+            name="input-nome"
+            type="text"
             class="validate"
-            [(ngModel)]="usuario.email"
-            />
-            <label for="email">email:</label>
-        </div>
-    </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <input id="idade"
-                [(ngModel)]="usuario.idade"
-                name="idade"
-                 type="number"
-                  class="validate"
-                   />
-                <label for="idade"  >Idade</label>
-            </div>
-            <div class="input-field col s6">
-                <input id="peso" name="peso" type="number" 
-                class="validate"
-                [(ngModel)]="usuario.peso"/>
-                <label for="peso">Peso [Kg]:</label>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <input id="altura" name="altura" type="number" 
-                class="validate"
-                [(ngModel)]="usuario.altura"
-                />
-                <label for="altura">Altura [cm]</label>
-            </div>
-            <div class="input-field col s6">
-                <select name="atividade" [(ngModel)]="usuario.atividade">
-                    <option value="" disabled selected>escolha</option>
-                    <option value="1.2">Sedentário</option>
-                    <option value="1.375">Levemente Ativo</option>
-                    <option value="1.55">Moderadamente Ativo</option>
-                    <option value="1.725">Muito Ativo</option>
-                    <option value="1.9">Extremamente Ativo</option>
-                </select>
-                <label>Nivel de Atividade Física</label>
-            </div> 
-        </div>
-        <div class="row">
-            <div class="col s2">
-                <label>
-                    <input name="genero" type="radio" value="masculino">
-                    <span>Masculino</span>
-                  </label>
-            </div>
-            <div class="col s6">
-                <label>
-                  <input name="genero" type="radio" value="feminino">
-                  <span>Feminino</span>
-                </label>
-            </div>    
-        </div>
-        <div>
-        <div class="row" style="padding: 20px;">
-            <div class="col s6 push-s4">
-              <a  id ="btn-voltar" class="waves-effect waves-light btn red"
-                routerLink="/login" routerLinkActive="active">Voltar</a>
-            </div>
-            <div class="col s6">
-              <a class="waves-effect waves-light btn green"
-               (click)="navigateToDiarioAlimentar(usuario)"
-               >Cadastrar</a>
-            </div>
+            pattern="^[A-Za-zÀ-ú]+(?:\s[A-Za-zÀ-ú]+)*$"
+            #nome="ngModel"
+            required
+          />
+          <label for="nome">Nome:</label>
+          <div class="red-text" [hidden]="nome.valid || nome.untouched">
+            Por favor, informe o seu nome completo.
+          </div>
+          <div class="red-text" *ngIf="nome.errors?.['required'] && nome.touched">
+            Por favor, o nome é obrigatório.
           </div>
         </div>
+        <div class="input-field col s6">
+          <input
+            [(ngModel)]="usuario.email"
+            id="email"
+            name="input-email"
+            type="email"
+            class="validate"
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            #email="ngModel"
+            required
+          />
+          <label for="email">email:</label>
+          <div class="red-text" [hidden]="email.valid || email.untouched">
+            Por favor, informe um email valido.
+          </div>
+          <div class="red-text" *ngIf="email.errors?.['required'] && email.touched">
+            o email é obrigatório.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input
+            id="idade"
+            [(ngModel)]="usuario.idade"
+            name="idade"
+            type="number"
+            class="validate"
+            pattern="(?:[1-9][0-9]?|1[01][0-9]|120)$"
+            #idade="ngModel"
+            required
+          />
+          <label for="idade">Idade</label>
+          <div class="red-text" [hidden]="idade.valid || idade.untouched">
+            Informe uma Idade Válida.
+          </div>
+          <div class="red-text" *ngIf="nome.errors?.['required'] && nome.touched">
+            a idade é obrigatória.
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <input
+            [(ngModel)]="usuario.peso"
+            id="peso"
+            name="peso"
+            type="number"
+            class="validate"
+            pattern="^(?:[1-5]\d{0,2}|600|\d{2})(\.\d{1,2})?$"
+            #peso="ngModel"
+            required
+          />
+          <label for="peso">Peso [Kg]:</label>
+          <div class="red-text" [hidden]="peso.valid || peso.untouched">
+            Informe um peso válido.
+          </div>
+          <div class="red-text" *ngIf="peso.errors?.['required'] && peso.touched">
+            O peso é obrigatório
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input
+            [(ngModel)]="usuario.altura"
+            id="altura"
+            name="altura"
+            type="number"
+            class="validate"
+            pattern="^(?:[6-9]\d|1\d\d|2[0-4]\d|250)(?:\.\d)?$|^60(?:\.0)?$"
+            #altura="ngModel"
+            required
+          />
+          <label for="altura">Altura [cm]</label>
+          <div class="red-text" [hidden]="altura.valid || altura.untouched">
+            Informe uma altura válida
+          </div>
+          <div class="red-text" *ngIf="altura.errors?.['required'] && altura.touched">
+            A altura é obrigatória
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <select name="atividade"
+           [(ngModel)]="usuario.atividade"
+           #atividade="ngModel"
+           required>
+            <option value="" selected disabled>escolha</option>
+            <option value="1.2">Sedentário</option>
+            <option value="1.375">Levemente Ativo</option>
+            <option value="1.55">Moderadamente Ativo</option>
+            <option value="1.725">Muito Ativo</option>
+            <option value="1.9">Extremamente Ativo</option>
+          </select>
+          <label>Nivel de Atividade Física</label>
+          <div class="red-text" *ngIf="form.valid && atividade.pristine">
+            A altura é obrigatória
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input
+              name="genero"
+              type="radio"
+              value="masculino"
+              [(ngModel)]="usuario.genero"
+            />
+            <span>Masculino</span>
+          </label>
+        </div>
+        <div class="col s6">
+          <label>
+            <input
+              name="genero"
+              type="radio"
+              value="feminino"
+              [(ngModel)]="usuario.genero"
+            />
+            <span>Feminino</span>
+          </label>
+        </div>
+      </div>
+      <div>
+        <div class="row" style="padding: 20px; margin-bottom: 0px">
+          <div class="col s6 push-s3">
+            <button
+              id="btn-voltar"
+              class="waves-effect waves-light btn red"
+              routerLink="/login"
+              routerLinkActive="active"
+              >Voltar <i class="material-icons right">replay</i>
+            </button>
+          </div>
+          <div class="col s6">
+            <button
+              class="waves-effect waves-light btn green"
+              type="submit"
+              [disabled]="!form.valid || atividade.pristine"> Cadastrar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </div>
     </form>
-</div>
+  </div>
 </div>
