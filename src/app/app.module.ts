@@ -22,7 +22,7 @@ import { UsuarioService } from './services/usuario.service';
     TelaCadastroComponent,
     DiarioAlimentarComponent,
     AdicionarAlimentoComponent,
-    AlterarAlimentoComponent,
+    AlterarAlimentoComponent
     
   ],
   imports: [

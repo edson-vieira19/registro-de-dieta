@@ -21,7 +21,7 @@ export class TelaCadastroComponent implements OnInit, AfterViewInit{
       var elems = document.querySelectorAll('select');
       var instances = M.FormSelect.init(elems);
         
-      this.usuario = new Usuario('','',null, null, null,1.2,'masculino');
+      this.usuario = new Usuario('','',null, null, null,0,'masculino');
     }
 
     ngAfterViewInit(): void {
@@ -43,7 +43,6 @@ export class TelaCadastroComponent implements OnInit, AfterViewInit{
       this.usuarioService.imprimeConsole(this.usuario);
 
     }
-
 
 
 
