@@ -12,6 +12,7 @@ import { DiarioAlimentarComponent } from './diario-alimentar/diario-alimentar.co
 import { AdicionarAlimentoComponent } from './adicionar-alimento/adicionar-alimento.component';
 import { AlterarAlimentoComponent } from './alterar-alimento/alterar-alimento.component';
 import { UsuarioService } from './services/usuario.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UsuarioService } from './services/usuario.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent]

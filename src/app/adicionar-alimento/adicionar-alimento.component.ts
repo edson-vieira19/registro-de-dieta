@@ -3,6 +3,7 @@ import { Usuario } from './../Model/usuario';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from '../services/usuario.service';
+import { NavigateService } from '../services/navigate.service';
 
 @Component({
   selector: 'app-adicionar-alimento',
@@ -19,7 +20,8 @@ export class AdicionarAlimentoComponent implements OnInit {
 
   totalCalorias!:number;
 
-  constructor(private service:UsuarioService, private route: ActivatedRoute){
+  constructor(private service:UsuarioService,
+    private navigateService:NavigateService, private route: ActivatedRoute){
 
   }
 
@@ -39,7 +41,8 @@ export class AdicionarAlimentoComponent implements OnInit {
     });
 
   }
-
+  
+  //adiciona um alimento em um das refeições
   adicionarAlimento(){
 
     this.alimento.calculaCalorias();
@@ -59,11 +62,6 @@ export class AdicionarAlimentoComponent implements OnInit {
       break;
     }  
     this.service.salvar(this.usuario);
-    this.service.navigateToDiarioAlimentar(this.usuario);
+    this.navigateService.navigateToDiarioAlimentar(this.usuario);
   }
-
-
-
-
-
 }

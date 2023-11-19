@@ -1,0 +1,138 @@
+{
+  "usuarios": [
+    {
+      "id": "596",
+      "nome": "Edson",
+      "email": "edson@gmail.com",
+      "idade": 37,
+      "peso": 80,
+      "altura": 165,
+      "atividade": "1.55",
+      "genero": "masculino",
+      "necessidadeCalorica": 2700,
+      "cafeDaManha": {
+        "nome": "Café da Manhã",
+        "alimentos": []
+       },
+      "almoco": {
+        "nome": "Almoço",
+        "alimentos": []
+      },
+      "cafeDaTarde": {
+        "nome": "Café da Tarde",
+        "alimentos": []
+      },
+      "jantar": {
+        "nome": "Jantar",
+        "alimentos": []
+      }
+    }
+
+  ],
+
+  "alimentos": [
+
+    {
+      "nome": "Ovos mexidos",
+      "quantidade": "200",
+      "carboidrato": 3,
+      "proteina": 22,
+      "gordura": 23,
+      "calorias": 307
+    },
+    {
+      "nome": "Pão Francês",
+      "quantidade": "50",
+      "carboidrato": 30,
+      "proteina": 4,
+      "gordura": 1,
+      "calorias": 145
+    },
+    {
+      "nome": "Café Preto com adoçante",
+      "quantidade": "200",
+      "carboidrato": 1,
+      "proteina": 0,
+      "gordura": 0,
+      "calorias": 4
+    },
+    {
+      "nome": "Arroz integral",
+      "quantidade": "100",
+      "carboidrato": 22,
+      "proteina": 2,
+      "gordura": 1,
+      "calorias": 105
+    },
+    {
+      "nome": "Bife de Carne de boi",
+      "quantidade": "150",
+      "carboidrato": 0,
+      "proteina": 40,
+      "gordura": 22,
+      "calorias": 358
+    },
+    {
+      "nome": "salada alface",
+      "quantidade": "100",
+      "carboidrato": 6,
+      "proteina": 2,
+      "gordura": 0,
+      "calorias": 32
+    },
+    {
+      "nome": "Azeite de Oliva",
+      "quantidade": "15",
+      "carboidrato": 0,
+      "proteina": 0,
+      "gordura": 15,
+      "calorias": 135
+    },
+    {
+      "nome": "Whey Protein",
+      "quantidade": "40",
+      "carboidrato": 5,
+      "proteina": 30,
+      "gordura": 0,
+      "calorias": 140
+    },
+    {
+      "nome": "Salada de Frutas",
+      "quantidade": "100",
+      "carboidrato": 14,
+      "proteina": 1,
+      "gordura": 1,
+      "calorias": 69
+    },
+
+    {
+      "nome": "Feijão cozido",
+      "quantidade": "150",
+      "carboidrato": 20,
+      "proteina": 8,
+      "gordura": 1,
+      "calorias": 121
+    },
+    {
+      "nome": "Macarrao",
+      "quantidade": "100",
+      "carboidrato": 30,
+      "proteina": 6,
+      "gordura": 1,
+      "calorias": 153
+    },
+    {
+      "nome": "Coxa de Frango",
+      "quantidade": "150",
+      "carboidrato": 0,
+      "proteina": 40,
+      "gordura": 16,
+      "calorias": 304
+    }
+
+
+
+
+  ]
+  
+}

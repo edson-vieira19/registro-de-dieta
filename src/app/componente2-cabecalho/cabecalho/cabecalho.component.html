@@ -1,23 +1,34 @@
-
 <div class="navbar-fixed" style="z-index: 1001 !important">
   <nav>
     <div class="nav-wrapper verde">
-      <a href="#!" class="brand-logo" style="height: fit-content;">
-        <img class="logo" src="assets/resources/images/logo.jpeg">
+      <a href="#!" class="brand-logo">
+        <img class="logo" src="assets/resources/images/logo.jpeg" />
       </a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <span class="title brand-logo center hide-on-med-and-down">
+        Registro de dieta
+      </span>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+        ><i class="material-icons">menu</i></a
+      >
       <ul class="right hide-on-med-and-down">
-        <li><a routerLink="/inicio" class="flow-text">Início</a></li>
+        <li> <a class="flow-text"
+          routerLink="/login"
+          routerLinkActive="active">
+          Início
+        </a> 
+        </li>
         <li><a routerLink="/sobre" class="flow-text">Sobre</a></li>
-        <li><a routerLink="/contato" class="flow-text">Contato</a></li>  
+        <li><a routerLink="/contato" class="flow-text">Contato</a></li>
       </ul>
     </div>
   </nav>
 </div>
 
-
 <ul class="sidenav" id="mobile-demo">
-        <li style="margin-top: 80px;"><a routerLink="/inicio" class="flow-text">Início</a></li>
-        <li><a routerLink="/sobre" class="flow-text">Sobre</a></li>
-        <li><a routerLink="/contato" class="flow-text">Contato</a></li>
+  <li routerLink="/login" routerLinkActive="active" class="flow-text">
+    Inicio
+  </li>
+
+  <li><a routerLink="/sobre" class="flow-text">Sobre</a></li>
+  <li><a routerLink="/contato" class="flow-text">Contato</a></li>
 </ul>
