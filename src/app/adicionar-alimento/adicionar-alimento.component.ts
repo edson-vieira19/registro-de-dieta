@@ -64,10 +64,12 @@ export class AdicionarAlimentoComponent implements OnInit {
     }  
     this.service.salvar(this.usuario);
 
-    //salva no db.json
+    //salva no db.json usando promisse
     this.alimentoService.salvarAlimentoNoDbJson(this.alimento).
     then((resultado) => {console.log(resultado)
-    });
+    }).catch((erro) => {
+      console.log('Erro ao salvar alimento')});
+
 
     this.navigateService.navigateToDiarioAlimentar(this.usuario);
   }
