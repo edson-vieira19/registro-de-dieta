@@ -11,11 +11,10 @@
         ><i class="material-icons">menu</i></a
       >
       <ul class="right hide-on-med-and-down">
-        <li> <a class="flow-text"
-          routerLink="/login"
-          routerLinkActive="active">
-          Início
-        </a> 
+        <li>
+          <a class="flow-text" routerLink="/login" routerLinkActive="active">
+            Início
+          </a>
         </li>
         <li><a routerLink="/sobre" class="flow-text">Sobre</a></li>
         <li><a routerLink="/contato" class="flow-text">Contato</a></li>
@@ -24,11 +23,16 @@
   </nav>
 </div>
 
-<ul class="sidenav" id="mobile-demo">
-  <li routerLink="/login" routerLinkActive="active" class="flow-text">
-    Inicio
-  </li>
 
+<ul class="sidenav" style="margin-top: 55px; width: fit-content;"
+ id="mobile-demo">
+  <li><a
+    routerLink="/login"
+    routerLinkActive="active"
+    class="flow-text">
+    Inicio
+    </a>
+  </li>
   <li><a routerLink="/sobre" class="flow-text">Sobre</a></li>
   <li><a routerLink="/contato" class="flow-text">Contato</a></li>
 </ul>

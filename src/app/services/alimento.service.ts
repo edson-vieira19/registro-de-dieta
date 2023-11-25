@@ -1,11 +1,29 @@
+import { Alimento } from './../Model/alimento';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../Model/usuario';
+import { HttpClient } from '@angular/common/http';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlimentoService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
+
+  private url:string = "http://localhost:3000/alimentos"
+
+  //salva um alimento usando promisses
+  async salvarAlimentoNoDbJson(alimento: Alimento) :Promise<any>{
+
+  
+      var obs = this.http.post(this.url, alimento);
+
+      return await lastValueFrom(obs);
+  }
+
+
+
+
 
   somaTotalCaloriasCafeManha(usuario: Usuario): number {
     var totalCaloriasCafeManha = 0;

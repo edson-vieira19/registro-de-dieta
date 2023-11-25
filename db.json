@@ -13,7 +13,7 @@
       "cafeDaManha": {
         "nome": "Café da Manhã",
         "alimentos": []
-       },
+      },
       "almoco": {
         "nome": "Almoço",
         "alimentos": []
@@ -27,12 +27,10 @@
         "alimentos": []
       }
     }
-
   ],
-
   "alimentos": [
-
     {
+      "id": 1,
       "nome": "Ovos mexidos",
       "quantidade": "200",
       "carboidrato": 3,
@@ -41,6 +39,7 @@
       "calorias": 307
     },
     {
+      "id": 2,
       "nome": "Pão Francês",
       "quantidade": "50",
       "carboidrato": 30,
@@ -49,6 +48,7 @@
       "calorias": 145
     },
     {
+      "id": 3,
       "nome": "Café Preto com adoçante",
       "quantidade": "200",
       "carboidrato": 1,
@@ -57,6 +57,7 @@
       "calorias": 4
     },
     {
+      "id": 4,
       "nome": "Arroz integral",
       "quantidade": "100",
       "carboidrato": 22,
@@ -65,6 +66,7 @@
       "calorias": 105
     },
     {
+      "id": 5,
       "nome": "Bife de Carne de boi",
       "quantidade": "150",
       "carboidrato": 0,
@@ -73,6 +75,7 @@
       "calorias": 358
     },
     {
+      "id": 6,
       "nome": "salada alface",
       "quantidade": "100",
       "carboidrato": 6,
@@ -81,6 +84,7 @@
       "calorias": 32
     },
     {
+      "id": 7,
       "nome": "Azeite de Oliva",
       "quantidade": "15",
       "carboidrato": 0,
@@ -89,6 +93,7 @@
       "calorias": 135
     },
     {
+      "id": 8,
       "nome": "Whey Protein",
       "quantidade": "40",
       "carboidrato": 5,
@@ -97,6 +102,7 @@
       "calorias": 140
     },
     {
+      "id": 9,
       "nome": "Salada de Frutas",
       "quantidade": "100",
       "carboidrato": 14,
@@ -104,8 +110,8 @@
       "gordura": 1,
       "calorias": 69
     },
-
     {
+      "id": 10,
       "nome": "Feijão cozido",
       "quantidade": "150",
       "carboidrato": 20,
@@ -114,6 +120,7 @@
       "calorias": 121
     },
     {
+      "id": 11,
       "nome": "Macarrao",
       "quantidade": "100",
       "carboidrato": 30,
@@ -122,17 +129,22 @@
       "calorias": 153
     },
     {
+      "id": 12,
       "nome": "Coxa de Frango",
       "quantidade": "150",
       "carboidrato": 0,
       "proteina": 40,
       "gordura": 16,
       "calorias": 304
+    },
+    {
+      "nome": "Aveia em Flocos",
+      "quantidade": "100",
+      "carboidrato": 57,
+      "proteina": 14,
+      "gordura": 8,
+      "calorias": 356,
+      "id": 13
     }
-
-
-
-
   ]
-  
 }

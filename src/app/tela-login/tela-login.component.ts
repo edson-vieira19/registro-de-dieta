@@ -60,7 +60,7 @@ export class TelaLoginComponent implements OnInit {
 
   else{
 
-    this.mensagem = "Usuario nao encontrado"
+    this.mensagem = "Usuario ainda não cadastrado"
   }
 
 

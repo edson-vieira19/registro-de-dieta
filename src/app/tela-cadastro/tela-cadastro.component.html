@@ -17,11 +17,11 @@
           />
           <label for="nome">Nome:</label>
           <div class="red-text" [hidden]="nome.valid || nome.untouched">
-            Por favor, informe o seu nome completo.
+            Digite um nome válido.
           </div>
           <div class="red-text"
             *ngIf="nome.errors?.['required'] && nome.touched">
-            Por favor, o nome é obrigatório.
+            O nome é obrigatório.
           </div>
         </div>
         <div class="input-field col s6">

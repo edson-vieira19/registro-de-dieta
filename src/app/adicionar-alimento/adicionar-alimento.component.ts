@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from '../services/usuario.service';
 import { NavigateService } from '../services/navigate.service';
+import { AlimentoService } from '../services/alimento.service';
 
 @Component({
   selector: 'app-adicionar-alimento',
@@ -20,7 +21,7 @@ export class AdicionarAlimentoComponent implements OnInit {
 
   totalCalorias!:number;
 
-  constructor(private service:UsuarioService,
+  constructor(private service:UsuarioService, private alimentoService: AlimentoService,
     private navigateService:NavigateService, private route: ActivatedRoute){
 
   }
@@ -62,6 +63,12 @@ export class AdicionarAlimentoComponent implements OnInit {
       break;
     }  
     this.service.salvar(this.usuario);
+
+    //salva no db.json
+    this.alimentoService.salvarAlimentoNoDbJson(this.alimento).
+    then((resultado) => {console.log(resultado)
+    });
+
     this.navigateService.navigateToDiarioAlimentar(this.usuario);
   }
 }
