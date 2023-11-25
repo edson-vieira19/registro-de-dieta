@@ -1,3 +1,4 @@
+import { NavigateService } from './../services/navigate.service';
 import { UsuarioService } from './../services/usuario.service';
 import { Usuario } from './../Model/usuario';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
@@ -12,7 +13,8 @@ export class TelaCadastroComponent implements OnInit, AfterViewInit{
 
     usuario!:Usuario;
 
-    constructor(private usuarioService: UsuarioService ){
+    constructor(private usuarioService: UsuarioService,
+                    private navigateService: NavigateService ){
 
     }
 
@@ -34,7 +36,7 @@ export class TelaCadastroComponent implements OnInit, AfterViewInit{
 
       this.usuarioService.salvar(this.usuario);
 
-      this.usuarioService.navigateToDiarioAlimentar(this.usuario)
+      this.navigateService.navigateToDiarioAlimentar(this.usuario)
       
     }
 

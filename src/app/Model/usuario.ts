@@ -1,10 +1,8 @@
 import { Refeicao } from "./refeicao";
 
 export class Usuario{
-
-static proximoId: number = 1;    
-
-id:number;    
+    
+id:string;    
 nome:string;
 email:string;
 idade:any;
@@ -20,8 +18,8 @@ cafeDaTarde: Refeicao = new Refeicao('Café da Tarde');
 jantar: Refeicao = new Refeicao('Jantar');
 
 constructor(nome:string, email:string, idade:any,peso:any, altura:any, atividade:number,genero:string){
-    this.id = Usuario.proximoId++;
-    // this.id = String(Math.round(Math.random() * 1000));
+    
+    this.id = String(Math.round(Math.random() * 1000));
     this.nome = nome;
     this.email = email;
     this.idade = idade;

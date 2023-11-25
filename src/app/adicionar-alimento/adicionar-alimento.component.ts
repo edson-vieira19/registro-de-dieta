@@ -3,6 +3,8 @@ import { Usuario } from './../Model/usuario';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from '../services/usuario.service';
+import { NavigateService } from '../services/navigate.service';
+import { AlimentoService } from '../services/alimento.service';
 
 @Component({
   selector: 'app-adicionar-alimento',
@@ -19,7 +21,8 @@ export class AdicionarAlimentoComponent implements OnInit {
 
   totalCalorias!:number;
 
-  constructor(private service:UsuarioService, private route: ActivatedRoute){
+  constructor(private service:UsuarioService, private alimentoService: AlimentoService,
+    private navigateService:NavigateService, private route: ActivatedRoute){
 
   }
 
@@ -39,7 +42,8 @@ export class AdicionarAlimentoComponent implements OnInit {
     });
 
   }
-
+  
+  //adiciona um alimento em um das refeições
   adicionarAlimento(){
 
     this.alimento.calculaCalorias();
@@ -59,11 +63,14 @@ export class AdicionarAlimentoComponent implements OnInit {
       break;
     }  
     this.service.salvar(this.usuario);
-    this.service.navigateToDiarioAlimentar(this.usuario);
+
+    //salva no db.json usando promisse
+    this.alimentoService.salvarAlimentoNoDbJson(this.alimento).
+    then((resultado) => {console.log(resultado)
+    }).catch((erro) => {
+      console.log('Erro ao salvar alimento')});
+
+
+    this.navigateService.navigateToDiarioAlimentar(this.usuario);
   }
-
-
-
-
-
 }
