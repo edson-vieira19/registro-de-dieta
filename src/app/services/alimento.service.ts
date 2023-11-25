@@ -22,9 +22,6 @@ export class AlimentoService {
   }
 
 
-
-
-
   somaTotalCaloriasCafeManha(usuario: Usuario): number {
     var totalCaloriasCafeManha = 0;
     for (let i = 0; i < usuario.cafeDaManha.alimentos.length; i++) {
