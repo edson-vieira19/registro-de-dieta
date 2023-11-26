@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../Model/usuario';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,17 +11,28 @@ import { lastValueFrom } from 'rxjs';
 export class AlimentoService {
   constructor(private http: HttpClient) {}
 
-  private url:string = "http://localhost:3000/alimentos"
+  private url: string = 'http://localhost:3000/alimentos';
 
   //salva um alimento usando promisses
-  async salvarAlimentoNoDbJson(alimento: Alimento) :Promise<any>{
+  async salvarAlimentoNoDbJson(alimento: Alimento): Promise<any> {
+    var obs = this.http.post(this.url, alimento);
 
-  
-      var obs = this.http.post(this.url, alimento);
-
-      return await lastValueFrom(obs);
+    return await lastValueFrom(obs);
   }
 
+  //retorna um alimento pelo nome
+  getAlimento(nome: string): Observable<any> {
+    nome = nome.toLowerCase();
+
+    console.log(`${this.url}/?nome=${encodeURIComponent(nome)}`);
+
+    return this.http.get(`${this.url}/?nome=${encodeURIComponent(nome)}`);
+  }
+
+  //retorna sugestoes para autocompletar
+  getAlimentosSugestao(termo: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}?nome_like=^${termo}`);
+  }
 
   somaTotalCaloriasCafeManha(usuario: Usuario): number {
     var totalCaloriasCafeManha = 0;

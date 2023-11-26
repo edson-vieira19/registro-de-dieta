@@ -19,6 +19,8 @@
                 type="text"
                 class="validate"
                 [(ngModel)]="alimento.nome"
+                (change)="buscarAlimentoPorNome(alimento.nome)"
+                (input)="buscarSugestoes(alimento.nome)"
                 #nome="ngModel"
                 pattern="^[A-Za-zÀ-ú]+(?:\s[A-Za-zÀ-ú]+)*$"
                 required
@@ -32,6 +34,9 @@
                 *ngIf="nome.errors?.['required'] && nome.touched">
                 O nome do alimento é obrigatório.
               </div>
+              <ul *ngIf="sugestoes.length > 0" class="sugestoes">
+                <li *ngFor="let sugestao of sugestoes" (click)="selecionarSugestao(sugestao)">{{ sugestao.nome }}</li>
+              </ul>
             </div>
             <div class="input-field col s6">
               <input
@@ -45,7 +50,9 @@
                 required
                 lang="en-US"
               />
-              <label for="carboidrato">Carboidrato [g]</label>
+              <label for="carboidrato"
+              [ngClass]="{'active':alimento.carboidrato !==null}"
+              >Carboidrato [g]</label>
               <div
                 class="red-text"
                 [hidden]="carboidrato.valid || carboidrato.untouched"
@@ -71,7 +78,9 @@
                 #quantidade="ngModel"
                 required
               />
-              <label for="quantidade">Quantidade [g]</label>
+              <label
+              [ngClass]="{'active':alimento.quantidade !=null}"
+              for="quantidade">Quantidade [g]</label>
               <div
                 class="red-text"
                 [hidden]="quantidade.valid || quantidade.untouched"
@@ -96,7 +105,9 @@
                 pattern="^\d+(\.\d{1,2})?$"
                 required
               />
-              <label for="proteina">Proteinas [g]</label>
+              <label for="proteina"
+              [ngClass]="{'active':alimento.proteina !=null}"
+              >Proteinas [g]</label>
               <div
                 class="red-text"
                 [hidden]="proteina.valid || proteina.untouched"
@@ -142,7 +153,9 @@
                 pattern="^\d+(\.\d{1,2})?$"
                 required
               />
-              <label for="gordura">Gorduras [g]</label>
+              <label for="gordura"
+              [ngClass]="{'active':alimento.gordura !=null}"
+              >Gorduras [g]</label>
               <div
                 class="red-text"
                 [hidden]="gordura.valid || gordura.untouched"

@@ -18,7 +18,7 @@
               <!-- Alimentos do Café da Manhã -->
               <li class="collection-item"
                 *ngFor="let alimento of usuario.cafeDaManha.alimentos">
-                {{ alimento.nome }}, carb:
+                {{ alimento.nome |titlecase }}, carb:
                 {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g
                  , gord: {{ alimento.gordura }} g , 
                 {{ alimento.calorias }} Kcal
@@ -39,7 +39,7 @@
               <li
                 class="collection-item"
                 *ngFor="let alimento of usuario.almoco.alimentos">
-                {{ alimento.nome }}, carb:
+                {{ alimento.nome | titlecase}}, carb:
                 {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g,
                 gord: {{ alimento.gordura }} g ,
                 {{ alimento.calorias }} Kcal
@@ -52,7 +52,7 @@
           <!--cafe da tarde-->
           <div class="collapsible-header">
             <i class="material-icons">free_breakfast</i>Café da Tarde
-            <span class="col s2">{{ totalCaloriasCafeTarde }} Kcal</span>
+            <span class="col s2"> {{ totalCaloriasCafeTarde }} Kcal</span>
           </div>
           <div class="collapsible-body">
             <ul class="collection">
@@ -60,7 +60,7 @@
               <li
                 class="collection-item"
                 *ngFor="let alimento of usuario.cafeDaTarde.alimentos">
-                {{ alimento.nome }}, carb:
+                {{ alimento.nome | titlecase }}, carb:
                 {{ alimento.carboidrato }} g, prot: {{ alimento.proteina }} g,
                 gord: {{ alimento.gordura }} g, 
                 {{ alimento.calorias }} Kcal
@@ -82,7 +82,7 @@
                 class="collection-item"
                 *ngFor="let alimento of usuario.jantar.alimentos"
               >
-                {{ alimento.nome }}, carb:
+                {{ alimento.nome | titlecase }}, carb:
                 {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g ,
                 gord: {{ alimento.gordura }} g ,
                 {{ alimento.calorias }} Kcal

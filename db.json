@@ -31,7 +31,7 @@
   "alimentos": [
     {
       "id": 1,
-      "nome": "Ovos mexidos",
+      "nome": "ovos mexidos",
       "quantidade": "200",
       "carboidrato": 3,
       "proteina": 22,
@@ -40,7 +40,7 @@
     },
     {
       "id": 2,
-      "nome": "Pão Francês",
+      "nome": "pão francês",
       "quantidade": "50",
       "carboidrato": 30,
       "proteina": 4,
@@ -49,7 +49,7 @@
     },
     {
       "id": 3,
-      "nome": "Café Preto com adoçante",
+      "nome": "café preto",
       "quantidade": "200",
       "carboidrato": 1,
       "proteina": 0,
@@ -58,7 +58,7 @@
     },
     {
       "id": 4,
-      "nome": "Arroz integral",
+      "nome": "arroz integral",
       "quantidade": "100",
       "carboidrato": 22,
       "proteina": 2,
@@ -67,7 +67,7 @@
     },
     {
       "id": 5,
-      "nome": "Bife de Carne de boi",
+      "nome": "bife de carne de boi",
       "quantidade": "150",
       "carboidrato": 0,
       "proteina": 40,
@@ -85,7 +85,7 @@
     },
     {
       "id": 7,
-      "nome": "Azeite de Oliva",
+      "nome": "azeite de oliva",
       "quantidade": "15",
       "carboidrato": 0,
       "proteina": 0,
@@ -94,7 +94,7 @@
     },
     {
       "id": 8,
-      "nome": "Whey Protein",
+      "nome": "whey protein",
       "quantidade": "40",
       "carboidrato": 5,
       "proteina": 30,
@@ -103,7 +103,7 @@
     },
     {
       "id": 9,
-      "nome": "Salada de Frutas",
+      "nome": "salada de frutas",
       "quantidade": "100",
       "carboidrato": 14,
       "proteina": 1,
@@ -112,7 +112,7 @@
     },
     {
       "id": 10,
-      "nome": "Feijão cozido",
+      "nome": "feijão cozido",
       "quantidade": "150",
       "carboidrato": 20,
       "proteina": 8,
@@ -121,7 +121,7 @@
     },
     {
       "id": 11,
-      "nome": "Macarrao",
+      "nome": "macarrao",
       "quantidade": "100",
       "carboidrato": 30,
       "proteina": 6,
@@ -130,7 +130,7 @@
     },
     {
       "id": 12,
-      "nome": "Coxa de Frango",
+      "nome": "coxa de frango",
       "quantidade": "150",
       "carboidrato": 0,
       "proteina": 40,
@@ -138,13 +138,22 @@
       "calorias": 304
     },
     {
-      "nome": "Aveia em Flocos",
+      "nome": "aveia em flocos",
       "quantidade": "100",
       "carboidrato": 57,
       "proteina": 14,
       "gordura": 8,
       "calorias": 356,
       "id": 13
+    },
+    {
+      "nome": "carne de vaca",
+      "quantidade": "150",
+      "carboidrato": 0,
+      "proteina": 40,
+      "gordura": 10,
+      "calorias": 250,
+      "id": 14
     }
   ]
 }

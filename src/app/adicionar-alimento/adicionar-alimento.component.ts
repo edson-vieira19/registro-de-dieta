@@ -21,6 +21,8 @@ export class AdicionarAlimentoComponent implements OnInit {
 
   totalCalorias!:number;
 
+  sugestoes: any[] = [];
+
   constructor(private service:UsuarioService, private alimentoService: AlimentoService,
     private navigateService:NavigateService, private route: ActivatedRoute){
 
@@ -47,7 +49,6 @@ export class AdicionarAlimentoComponent implements OnInit {
   adicionarAlimento(){
 
     this.alimento.calculaCalorias();
-
     switch(this.qualRefeicao){
       case 'cafe-manha':
         this.usuario.cafeDaManha.alimentos.push(this.alimento);
@@ -65,6 +66,8 @@ export class AdicionarAlimentoComponent implements OnInit {
     this.service.salvar(this.usuario);
 
     //salva no db.json usando promisse
+    this.alimento.nome = this.alimento.nome.toLowerCase();
+
     this.alimentoService.salvarAlimentoNoDbJson(this.alimento).
     then((resultado) => {console.log(resultado)
     }).catch((erro) => {
@@ -73,4 +76,58 @@ export class AdicionarAlimentoComponent implements OnInit {
 
     this.navigateService.navigateToDiarioAlimentar(this.usuario);
   }
+
+
+  buscarAlimentoPorNome(nome: string): void {
+    console.log(nome)
+    this.alimentoService.getAlimento(nome).subscribe((alimento) => {
+      if (alimento) {
+        this.preencherCampos(alimento[0]);
+        console.log(alimento)
+      } else {
+        // Limpar os campos se o alimento não for encontrado
+        this.limparCampos();
+      }
+    });
+  }
+
+  private preencherCampos(alimento: any): void {
+    
+    this.alimento.carboidrato = alimento.carboidrato;
+    this.alimento.proteina = alimento.proteina;
+    this.alimento.gordura = alimento.gordura;
+    this.alimento.quantidade = alimento.quantidade;
+  }
+
+  private limparCampos(): void {
+    // Limpar os campos do formulário
+    this.alimento.carboidrato = null;
+    this.alimento.proteina = null;
+    this.alimento.gordura = null;
+    this.alimento.quantidade = null;
+  }
+
+
+  buscarSugestoes(termo:string): void {
+
+    if (termo.length >= 1) {
+      this.alimentoService.getAlimentosSugestao(termo).subscribe((sugestoes) => {
+        this.sugestoes = sugestoes;
+      });
+    } else {
+      this.sugestoes = []; // Limpar sugestões se o termo de pesquisa for vazio
+    }
+    // this.alimentoService.getAlimentosSugestao(termo).subscribe((sugestoes) => {
+    //   this.sugestoes = sugestoes;
+    // });
+  }
+
+  selecionarSugestao(sugestao: any): void {
+
+    this.alimento.nome = sugestao.nome;
+    this.sugestoes = [];
+
+    this.buscarAlimentoPorNome(this.alimento.nome)
+  }
+
 }
