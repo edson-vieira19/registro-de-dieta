@@ -154,6 +154,33 @@
       "gordura": 10,
       "calorias": 250,
       "id": 14
-    }
+    },
+    {
+      "nome": "arroz integral",
+      "quantidade": "100",
+      "carboidrato": 22,
+      "proteina": 2,
+      "gordura": 1,
+      "calorias": 105,
+      "id": 15
+    },
+    {
+      "nome": "peito de frango grelhado",
+      "quantidade": "100",
+      "carboidrato": 0,
+      "proteina": 32,
+      "gordura": 2.5,
+      "calorias": 150.5,
+      "id": 16
+    },
+    {
+      "nome": "pure de batata",
+      "quantidade": "100",
+      "carboidrato": 66,
+      "proteina": 8,
+      "gordura": 0,
+      "calorias": 296,
+      "id": 18
+    }  
   ]
 }

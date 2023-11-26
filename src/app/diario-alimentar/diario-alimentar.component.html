@@ -16,14 +16,14 @@
           <div class="collapsible-body">
             <ul class="collection">
               <!-- Alimentos do Café da Manhã -->
-              <li class="collection-item"
-                *ngFor="let alimento of usuario.cafeDaManha.alimentos">
-                {{ alimento.nome |titlecase }}, carb:
-                {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g
-                 , gord: {{ alimento.gordura }} g , 
-                {{ alimento.calorias }} Kcal
+              <li
+                class="collection-item"
+                *ngFor="let alimento of usuario.cafeDaManha.alimentos"
+              >
+                {{ alimento.nome | titlecase }}, carb:
+                {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g ,
+                gord: {{ alimento.gordura }} g , {{ alimento.calorias }} Kcal
               </li>
-              <!-- Outros alimentos do Café da Manhã aqui -->
             </ul>
           </div>
         </li>
@@ -38,11 +38,11 @@
               <!-- Alimentos do Almoço -->
               <li
                 class="collection-item"
-                *ngFor="let alimento of usuario.almoco.alimentos">
-                {{ alimento.nome | titlecase}}, carb:
+                *ngFor="let alimento of usuario.almoco.alimentos"
+              >
+                {{ alimento.nome | titlecase }} - carb:
                 {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g,
-                gord: {{ alimento.gordura }} g ,
-                {{ alimento.calorias }} Kcal
+                gord: {{ alimento.gordura }} g , {{ alimento.calorias }} Kcal
               </li>
             </ul>
           </div>
@@ -59,11 +59,11 @@
               <!-- Alimentos do cafe da tarde -->
               <li
                 class="collection-item"
-                *ngFor="let alimento of usuario.cafeDaTarde.alimentos">
-                {{ alimento.nome | titlecase }}, carb:
+                *ngFor="let alimento of usuario.cafeDaTarde.alimentos"
+              >
+                {{ alimento.nome | titlecase }} - carb:
                 {{ alimento.carboidrato }} g, prot: {{ alimento.proteina }} g,
-                gord: {{ alimento.gordura }} g, 
-                {{ alimento.calorias }} Kcal
+                gord: {{ alimento.gordura }} g, {{ alimento.calorias }} Kcal
               </li>
             </ul>
           </div>
@@ -84,8 +84,7 @@
               >
                 {{ alimento.nome | titlecase }}, carb:
                 {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g ,
-                gord: {{ alimento.gordura }} g ,
-                {{ alimento.calorias }} Kcal
+                gord: {{ alimento.gordura }} g , {{ alimento.calorias }} Kcal
               </li>
             </ul>
           </div>
@@ -94,18 +93,20 @@
       <!--Botoes-->
       <div class="row" style="padding-top: 40px">
         <div class="col s6 m6 push-m1 push-s1">
-          <a
+          <button
             class="waves-effect waves-light btn-small red"
             routerLink="/alterar-alimento"
-            >alterar/excluir</a
           >
+            alterar/excluir...
+            <i class="material-icons right">delete</i>
+          </button>
         </div>
         <div class="col s6 m6">
-          <a
+          <button
             class="waves-effect waves-light btn-small green"
-            (click)="navigateToAdicionarAlimento()"
-            >adicionar</a
-          >
+            (click)="navigateToAdicionarAlimento()">
+            Adicionar... <i class="material-icons right">add</i>
+          </button>
         </div>
       </div>
       <!--Fim Botoes-->
@@ -115,12 +116,13 @@
     <div class="col s12 m5 push-s1 push-m1">
       <div class="row">
         <h6>
-          Necessidade Calorica Diária: <strong>{{ caloricNeeds}}</strong> Kcal
+          Necessidade Calorica Diária: <strong>{{ caloricNeeds }}</strong> Kcal
         </h6>
       </div>
       <div class="row">
         <h6>
-          Total de Calorias Consumidas: <strong>{{ totalCaloriasConsumidas }}</strong> Kcal
+          Total de Calorias Consumidas:
+          <strong>{{ totalCaloriasConsumidas }}</strong> Kcal
         </h6>
       </div>
       <div class="row">

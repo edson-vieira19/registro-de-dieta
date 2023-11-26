@@ -31,11 +31,18 @@
               </div>
               <div
                 class="red-text"
-                *ngIf="nome.errors?.['required'] && nome.touched">
+                *ngIf="nome.errors?.['required'] && nome.touched"
+              >
                 O nome do alimento é obrigatório.
               </div>
-              <ul *ngIf="sugestoes.length > 0" class="sugestoes">
-                <li *ngFor="let sugestao of sugestoes" (click)="selecionarSugestao(sugestao)">{{ sugestao.nome }}</li>
+              <ul
+               *ngIf="sugestoes.length > 0" class="sugestoes">
+                <li
+                  *ngFor="let sugestao of sugestoes"
+                  (click)="selecionarSugestao(sugestao)"
+                >
+                  {{ sugestao.nome }}
+                </li>
               </ul>
             </div>
             <div class="input-field col s6">
@@ -50,9 +57,11 @@
                 required
                 lang="en-US"
               />
-              <label for="carboidrato"
-              [ngClass]="{'active':alimento.carboidrato !==null}"
-              >Carboidrato [g]</label>
+              <label
+                for="carboidrato"
+                [ngClass]="{ active: alimento.carboidrato !== null }"
+                >Carboidrato [g]</label
+              >
               <div
                 class="red-text"
                 [hidden]="carboidrato.valid || carboidrato.untouched"
@@ -79,8 +88,10 @@
                 required
               />
               <label
-              [ngClass]="{'active':alimento.quantidade !=null}"
-              for="quantidade">Quantidade [g]</label>
+                [ngClass]="{ active: alimento.quantidade != null }"
+                for="quantidade"
+                >Quantidade [g]</label
+              >
               <div
                 class="red-text"
                 [hidden]="quantidade.valid || quantidade.untouched"
@@ -105,9 +116,11 @@
                 pattern="^\d+(\.\d{1,2})?$"
                 required
               />
-              <label for="proteina"
-              [ngClass]="{'active':alimento.proteina !=null}"
-              >Proteinas [g]</label>
+              <label
+                for="proteina"
+                [ngClass]="{ active: alimento.proteina != null }"
+                >Proteinas [g]</label
+              >
               <div
                 class="red-text"
                 [hidden]="proteina.valid || proteina.untouched"
@@ -128,7 +141,8 @@
                 name="qualRefeicao"
                 [(ngModel)]="qualRefeicao"
                 required
-                #refeicao="ngModel">
+                #refeicao="ngModel"
+              >
                 <option value="" selected disabled>Escolha</option>
                 <option value="cafe-manha">Café da Manhã</option>
                 <option value="almoco">Almoço</option>
@@ -138,7 +152,8 @@
               <label>Qual Refeição?</label>
               <div
                 class="red-text"
-                *ngIf="formAlimento.touched && refeicao.pristine">
+                *ngIf="formAlimento.touched && refeicao.pristine"
+              >
                 Informe uma refeicao
               </div>
             </div>
@@ -153,9 +168,11 @@
                 pattern="^\d+(\.\d{1,2})?$"
                 required
               />
-              <label for="gordura"
-              [ngClass]="{'active':alimento.gordura !=null}"
-              >Gorduras [g]</label>
+              <label
+                for="gordura"
+                [ngClass]="{ active: alimento.gordura != null }"
+                >Gorduras [g]</label
+              >
               <div
                 class="red-text"
                 [hidden]="gordura.valid || gordura.untouched"
@@ -176,15 +193,15 @@
               <a
                 id="btn-voltar2"
                 class="waves-effect waves-light btn red"
-                routerLink="/diario-alimentar"
-                routerLinkActive="active"
+                (click)="voltarParaDiarioAlimentar(usuario)"
                 >Voltar <i class="material-icons right">replay</i></a
               >
             </div>
             <div class="col s6">
               <button
                 class="waves-effect waves-light btn green"
-                [disabled]="!formAlimento.valid || refeicao.pristine">
+                [disabled]="!formAlimento.valid || refeicao.pristine"
+                >
                 Adicionar <i class="material-icons right">send</i>
               </button>
             </div>

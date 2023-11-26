@@ -16,7 +16,6 @@ export class AlimentoService {
   //salva um alimento usando promisses
   async salvarAlimentoNoDbJson(alimento: Alimento): Promise<any> {
     var obs = this.http.post(this.url, alimento);
-
     return await lastValueFrom(obs);
   }
 
