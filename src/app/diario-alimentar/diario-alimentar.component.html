@@ -11,7 +11,7 @@
         <li>
           <div class="collapsible-header">
             <i class="material-icons">free_breakfast</i>Café da Manhã
-            <span class="col s2">{{ totalCaloriasCafeManha }} Kcal</span>
+            <span class="col s2">{{ totalCaloriasCafeManha| sufixo:'Kcal' }}</span>
           </div>
           <div class="collapsible-body">
             <ul class="collection">
@@ -20,9 +20,9 @@
                 class="collection-item"
                 *ngFor="let alimento of usuario.cafeDaManha.alimentos"
               >
-                {{ alimento.nome | titlecase }}, carb:
-                {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g ,
-                gord: {{ alimento.gordura }} g , {{ alimento.calorias }} Kcal
+                {{ alimento.nome | titlecase }} -  carb:
+                {{ alimento.carboidrato |sufixo:'g' }} , prot: {{ alimento.proteina | sufixo:'g' }} ,
+                gord: {{ alimento.gordura | sufixo:'g'}} , {{ alimento.calorias | sufixo:'Kcal'}}
               </li>
             </ul>
           </div>
@@ -31,7 +31,7 @@
         <li>
           <div class="collapsible-header">
             <i class="material-icons">local_dining</i>Almoço
-            <span class="col s2">{{ totalCaloriasAlmoco }} Kcal</span>
+            <span class="col s2">{{ totalCaloriasAlmoco| sufixo:'Kcal' }}</span>
           </div>
           <div class="collapsible-body">
             <ul class="collection">
@@ -41,8 +41,8 @@
                 *ngFor="let alimento of usuario.almoco.alimentos"
               >
                 {{ alimento.nome | titlecase }} - carb:
-                {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g,
-                gord: {{ alimento.gordura }} g , {{ alimento.calorias }} Kcal
+                {{ alimento.carboidrato | sufixo:'g' }} , prot: {{ alimento.proteina | sufixo:'g' }},
+                gord: {{ alimento.gordura | sufixo:'g' }} , {{ alimento.calorias| sufixo:'Kcal' }}
               </li>
             </ul>
           </div>
@@ -52,7 +52,7 @@
           <!--cafe da tarde-->
           <div class="collapsible-header">
             <i class="material-icons">free_breakfast</i>Café da Tarde
-            <span class="col s2"> {{ totalCaloriasCafeTarde }} Kcal</span>
+            <span class="col s2"> {{ totalCaloriasCafeTarde| sufixo:'Kcal' }}</span>
           </div>
           <div class="collapsible-body">
             <ul class="collection">
@@ -62,8 +62,8 @@
                 *ngFor="let alimento of usuario.cafeDaTarde.alimentos"
               >
                 {{ alimento.nome | titlecase }} - carb:
-                {{ alimento.carboidrato }} g, prot: {{ alimento.proteina }} g,
-                gord: {{ alimento.gordura }} g, {{ alimento.calorias }} Kcal
+                {{ alimento.carboidrato | sufixo:'g' }}, prot: {{ alimento.proteina | sufixo:'g' }},
+                gord: {{ alimento.gordura | sufixo:'g' }}, {{ alimento.calorias | sufixo:'g' }}
               </li>
             </ul>
           </div>
@@ -73,7 +73,7 @@
           <!--Jantar-->
           <div class="collapsible-header">
             <i class="material-icons">local_dining</i>Jantar
-            <span class="col s2">{{ totalCaloriasJantar }} Kcal</span>
+            <span class="col s2">{{ totalCaloriasJantar | sufixo:'g' }}</span>
           </div>
           <div class="collapsible-body">
             <ul class="collection">
@@ -82,9 +82,9 @@
                 class="collection-item"
                 *ngFor="let alimento of usuario.jantar.alimentos"
               >
-                {{ alimento.nome | titlecase }}, carb:
-                {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g ,
-                gord: {{ alimento.gordura }} g , {{ alimento.calorias }} Kcal
+                {{ alimento.nome | titlecase }} -  carb:
+                {{ alimento.carboidrato | sufixo:'g'}} , prot: {{ alimento.proteina | sufixo:'g'}} ,
+                gord: {{ alimento.gordura | sufixo:'g'}} , {{ alimento.calorias | sufixo:'Kcal'}}
               </li>
             </ul>
           </div>
@@ -96,7 +96,8 @@
           <button
             class="waves-effect waves-light btn-small red"
             routerLink="/alterar-alimento"
-          >
+            (click)="navigateToAlterarAlimento()"
+            >
             Modificar...
             <i class="material-icons right">edit</i>
           </button>
@@ -116,7 +117,7 @@
     <div class="col s12 m5 push-s1 push-m1">
       <div class="row">
         <h6>
-          Necessidade Calorica Diária: <strong>{{ caloricNeeds }}</strong> Kcal
+          Necessidade Calorica Diária: <strong>{{ caloricNeeds}}</strong> Kcal
         </h6>
       </div>
       <div class="row">

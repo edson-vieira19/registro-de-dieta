@@ -13,6 +13,7 @@ import { AdicionarAlimentoComponent } from './adicionar-alimento/adicionar-alime
 import { AlterarAlimentoComponent } from './alterar-alimento/alterar-alimento.component';
 import { UsuarioService } from './services/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SufixoPipe } from './sufixo.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     TelaCadastroComponent,
     DiarioAlimentarComponent,
     AdicionarAlimentoComponent,
-    AlterarAlimentoComponent
+    AlterarAlimentoComponent,
+    SufixoPipe
     
   ],
   imports: [

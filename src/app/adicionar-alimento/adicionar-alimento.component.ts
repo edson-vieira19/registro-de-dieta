@@ -68,7 +68,7 @@ export class AdicionarAlimentoComponent implements OnInit {
 
     this.alimentoService.getAlimento(this.alimento.nome)
         .subscribe((alimentoExistente) => {
-          if (alimentoExistente) {
+          if (alimentoExistente.length > 0) {
             console.log('Alimento com o mesmo nome já existe. Não será salvo.');
           } else {
             this.alimentoService
