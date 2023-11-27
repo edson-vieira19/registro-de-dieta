@@ -1,10 +1,10 @@
-<div id="tela" class="container center-align" style="min-height: 300px;">
+<div id="tela" class="container center-align" style="min-height: 300px">
   <div class="row" style="margin: 0 !important">
     <div class="col s12 m5 center-align" style="margin-top: 40px">
       <img [src]="imageUrl" class="responsive-img" alt="food" />
     </div>
     <!--metade direita-->
-    <div class="col s12 m6 push-m1 center-align" style="margin-top: 80px;">
+    <div class="col s12 m6 push-m1 center-align" style="margin-top: 80px">
       <form class="col s12 m12">
         <div class="row">
           <div class="row">
@@ -19,9 +19,7 @@
                 #campoNome="ngModel"
               />
               <label for="nome">Nome:</label>
-              <div
-               *ngIf="mensagem"
-                class="red-text left">
+              <div *ngIf="mensagem" class="red-text left">
                 {{ mensagem }}
               </div>
             </div>
@@ -40,22 +38,22 @@
           </div>
         </div>
         <!--Botoes-->
-      <div id="botoes" class="row">
-        <a
-          id="btn-entrar"
-          class="waves-effect waves-light btn"
-          (click)="buscar()"
-          >Entrar</a
-        >
-        <a
-          routerLink="/cadastro"
-          routerLinkActive="active"
-          id="btn-cadastrar"
-          class="waves-effect waves-light btn"
-          >Cadastrar</a
-        >
-      </div>
-      <!--Fim botoes-->
+        <div id="botoes" class="row">
+          <button
+            id="btn-entrar"
+            class="waves-effect waves-light btn"
+            (click)="buscar()"
+            >Entrar <i class="material-icons right">assignment_ind</i>
+            </button>
+          <button
+            routerLink="/cadastro"
+            routerLinkActive="active"
+            id="btn-cadastrar"
+            class="waves-effect waves-light btn green"
+            >Cadastrar <i class="material-icons right">assignment</i>
+          </button>
+        </div>
+        <!--Fim botoes-->
       </form>
     </div>
   </div>

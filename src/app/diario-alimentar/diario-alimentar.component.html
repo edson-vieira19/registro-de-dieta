@@ -11,19 +11,19 @@
         <li>
           <div class="collapsible-header">
             <i class="material-icons">free_breakfast</i>Café da Manhã
-            <span class="col s2">{{ totalCaloriasCafeManha }} Kcal</span>
+            <span class="col s2">{{ totalCaloriasCafeManha| sufixo:'Kcal' }}</span>
           </div>
           <div class="collapsible-body">
             <ul class="collection">
               <!-- Alimentos do Café da Manhã -->
-              <li class="collection-item"
-                *ngFor="let alimento of usuario.cafeDaManha.alimentos">
-                {{ alimento.nome }}, carb:
-                {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g
-                 , gord: {{ alimento.gordura }} g , 
-                {{ alimento.calorias }} Kcal
+              <li
+                class="collection-item"
+                *ngFor="let alimento of usuario.cafeDaManha.alimentos"
+              >
+                {{ alimento.nome | titlecase }} -  carb:
+                {{ alimento.carboidrato |sufixo:'g' }} , prot: {{ alimento.proteina | sufixo:'g' }} ,
+                gord: {{ alimento.gordura | sufixo:'g'}} , {{ alimento.calorias | sufixo:'Kcal'}}
               </li>
-              <!-- Outros alimentos do Café da Manhã aqui -->
             </ul>
           </div>
         </li>
@@ -31,18 +31,18 @@
         <li>
           <div class="collapsible-header">
             <i class="material-icons">local_dining</i>Almoço
-            <span class="col s2">{{ totalCaloriasAlmoco }} Kcal</span>
+            <span class="col s2">{{ totalCaloriasAlmoco| sufixo:'Kcal' }}</span>
           </div>
           <div class="collapsible-body">
             <ul class="collection">
               <!-- Alimentos do Almoço -->
               <li
                 class="collection-item"
-                *ngFor="let alimento of usuario.almoco.alimentos">
-                {{ alimento.nome }}, carb:
-                {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g,
-                gord: {{ alimento.gordura }} g ,
-                {{ alimento.calorias }} Kcal
+                *ngFor="let alimento of usuario.almoco.alimentos"
+              >
+                {{ alimento.nome | titlecase }} - carb:
+                {{ alimento.carboidrato | sufixo:'g' }} , prot: {{ alimento.proteina | sufixo:'g' }},
+                gord: {{ alimento.gordura | sufixo:'g' }} , {{ alimento.calorias| sufixo:'Kcal' }}
               </li>
             </ul>
           </div>
@@ -52,18 +52,18 @@
           <!--cafe da tarde-->
           <div class="collapsible-header">
             <i class="material-icons">free_breakfast</i>Café da Tarde
-            <span class="col s2">{{ totalCaloriasCafeTarde }} Kcal</span>
+            <span class="col s2"> {{ totalCaloriasCafeTarde| sufixo:'Kcal' }}</span>
           </div>
           <div class="collapsible-body">
             <ul class="collection">
               <!-- Alimentos do cafe da tarde -->
               <li
                 class="collection-item"
-                *ngFor="let alimento of usuario.cafeDaTarde.alimentos">
-                {{ alimento.nome }}, carb:
-                {{ alimento.carboidrato }} g, prot: {{ alimento.proteina }} g,
-                gord: {{ alimento.gordura }} g, 
-                {{ alimento.calorias }} Kcal
+                *ngFor="let alimento of usuario.cafeDaTarde.alimentos"
+              >
+                {{ alimento.nome | titlecase }} - carb:
+                {{ alimento.carboidrato | sufixo:'g' }}, prot: {{ alimento.proteina | sufixo:'g' }},
+                gord: {{ alimento.gordura | sufixo:'g' }}, {{ alimento.calorias | sufixo:'g' }}
               </li>
             </ul>
           </div>
@@ -73,7 +73,7 @@
           <!--Jantar-->
           <div class="collapsible-header">
             <i class="material-icons">local_dining</i>Jantar
-            <span class="col s2">{{ totalCaloriasJantar }} Kcal</span>
+            <span class="col s2">{{ totalCaloriasJantar | sufixo:'Kcal' }}</span>
           </div>
           <div class="collapsible-body">
             <ul class="collection">
@@ -82,10 +82,9 @@
                 class="collection-item"
                 *ngFor="let alimento of usuario.jantar.alimentos"
               >
-                {{ alimento.nome }}, carb:
-                {{ alimento.carboidrato }} g , prot: {{ alimento.proteina }} g ,
-                gord: {{ alimento.gordura }} g ,
-                {{ alimento.calorias }} Kcal
+                {{ alimento.nome | titlecase }} -  carb:
+                {{ alimento.carboidrato | sufixo:'g'}} , prot: {{ alimento.proteina | sufixo:'g'}} ,
+                gord: {{ alimento.gordura | sufixo:'g'}} , {{ alimento.calorias | sufixo:'Kcal'}}
               </li>
             </ul>
           </div>
@@ -94,18 +93,21 @@
       <!--Botoes-->
       <div class="row" style="padding-top: 40px">
         <div class="col s6 m6 push-m1 push-s1">
-          <a
+          <button
             class="waves-effect waves-light btn-small red"
             routerLink="/alterar-alimento"
-            >alterar/excluir</a
-          >
+            (click)="navigateToAlterarAlimento()"
+            >
+            Modificar...
+            <i class="material-icons right">edit</i>
+          </button>
         </div>
         <div class="col s6 m6">
-          <a
+          <button
             class="waves-effect waves-light btn-small green"
-            (click)="navigateToAdicionarAlimento()"
-            >adicionar</a
-          >
+            (click)="navigateToAdicionarAlimento()">
+            Adicionar... <i class="material-icons right">add</i>
+          </button>
         </div>
       </div>
       <!--Fim Botoes-->
@@ -120,7 +122,8 @@
       </div>
       <div class="row">
         <h6>
-          Total de Calorias Consumidas: <strong>{{ totalCaloriasConsumidas }}</strong> Kcal
+          Total de Calorias Consumidas:
+          <strong>{{ totalCaloriasConsumidas }}</strong> Kcal
         </h6>
       </div>
       <div class="row">

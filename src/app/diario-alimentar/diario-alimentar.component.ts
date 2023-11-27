@@ -97,7 +97,6 @@ export class DiarioAlimentarComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     
     //inicializacao do grafico
-
     const ctx = this.donutChart.nativeElement.getContext('2d');
 
     var chart = new Chart(ctx, {
@@ -136,6 +135,10 @@ export class DiarioAlimentarComponent implements OnInit, AfterViewInit {
   navigateToAdicionarAlimento() {
     this.navigateService.navigateToAdicionarAlimento(this.usuario);
     this.service.imprimeConsole(this.usuario);
+  }
+
+  navigateToAlterarAlimento(){
+    this.navigateService.navigateToAlterarAlimento(this.usuario);
   }
 
   somaTotalCaloriasConsumidas() {

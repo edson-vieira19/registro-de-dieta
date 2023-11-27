@@ -21,4 +21,12 @@ export class NavigateService {
 
   }
 
+  navigateToAlterarAlimento(usuario:Usuario){
+
+    this.router.navigate(['/alterar-alimento',usuario.id.toString()]);
+  }
+
+
+
+
 }

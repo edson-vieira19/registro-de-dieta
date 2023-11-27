@@ -79,7 +79,8 @@
           <div class="red-text" [hidden]="peso.valid || peso.untouched">
             Informe um peso válido.
           </div>
-          <div class="red-text" *ngIf="peso.errors?.['required'] && peso.touched">
+          <div class="red-text"
+           *ngIf="peso.errors?.['required'] && peso.touched">
             O peso é obrigatório
           </div>
         </div>
@@ -100,7 +101,8 @@
           <div class="red-text" [hidden]="altura.valid || altura.untouched">
             Informe uma altura válida
           </div>
-          <div class="red-text" *ngIf="altura.errors?.['required'] && altura.touched">
+          <div class="red-text"
+           *ngIf="altura.errors?.['required'] && altura.touched">
             A altura é obrigatória
           </div>
         </div>
@@ -117,7 +119,8 @@
             <option value="1.9">Extremamente Ativo</option>
           </select>
           <label>Nivel de Atividade Física</label>
-          <div class="red-text" *ngIf="form.valid && atividade.pristine">
+          <div class="red-text"
+           *ngIf="form.valid && atividade.pristine">
             Informe o nível de ativiade física
           </div>
         </div>

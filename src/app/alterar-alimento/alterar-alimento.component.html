@@ -49,14 +49,29 @@
                      </div>
                      <!--Botoes-->
                      <div class="row" style="padding: 20px;">
-                        <div class="col s6 push-s2">
-                          <a  id ="btn-voltar2" class="waves-effect waves-light btn red"
-                            routerLink="/diario-alimentar" routerLinkActive="active">Excluir</a>
+                        <div class="col s4 ">
+                            <button
+                              id ="btn-voltar"
+                              name="btn-voltar"
+                              title="voltar para diario alimentar" 
+                              (click)="voltarParaDiarioAlimentar(usuario)"
+                              class="waves-effect waves-light btn orange btn-small"
+                              >Voltar <i class="material-icons right">replay</i>
+                          </button>
+                          </div>
+                        <div class="col s4 ">
+                          <button
+                            id ="btn-excluir"
+                            name="btn-excluir"
+                            title="excluir um alimento"
+                            class="waves-effect waves-light btn red btn-small"
+                            >Excluir <i class="material-icons right">delete</i>
+                        </button>
                         </div>
-                        <div class="col s6">
-                          <a class="waves-effect waves-light btn green"
-                          routerLink="/diario-alimentar" routerLinkActive="active"
-                           >Salvar</a>
+                        <div class="col s4">
+                        <button class="waves-effect waves-light btn btn-small green"
+                           >Salvar <i class="material-icons right">save</i>
+                        </button>
                         </div>
                       </div>    
                 </form>

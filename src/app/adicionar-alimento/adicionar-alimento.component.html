@@ -1,96 +1,242 @@
 <!--conteiner principal-->
 <div class="container">
-    <!--Linha Principal-->
-    <div class="row">
-        <!--metade esquerda-->
-        <div class="col s12 m8 l8">
-            <h5>Adicionar Alimento:</h5>
-            <div class="row" style="padding-top: 10px;">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="nome-alimento"
-                            name="nome-alimento"
-                             type="text" class="validate"
-                             [(ngModel)]="alimento.nome">
-                             <label for="nome-alimento">Alimento:</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="carboidrato"
-                            name="carboidrato"
-                             type="number" class="validate"
-                             [(ngModel)]="alimento.carboidrato">
-                             <label for="carboidrato">Carboidrato [g]</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="quantidade"
-                                name="quantidade"
-                             type="text" class="validate"
-                             [(ngModel)]="alimento.quantidade">
-                             <label for="quantidade">Quantidade [g]</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="proteina"
-                            name="proteina"
-                             type="number" class="validate"
-                             [(ngModel)]="alimento.proteina">
-                             <label for="proteina">Proteinas [g]</label>
-                        </div>     
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <select name="qualRefeicao"
-                             [(ngModel)]="qualRefeicao">
-                                <option value="cafe-manha">Café da Manhã</option>
-                                <option value="almoco">Almoço</option>
-                                <option value="cafe-tarde">Café da Tarde</option>
-                                <option value="jantar">jantar</option>
-                            </select>
-                            <label>Qual Refeição?</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="gordura"
-                            name="gordura"
-                            [(ngModel)]="alimento.gordura"
-                             type="number" class="validate">
-                             <label for="gordura">Gorduras [g]</label>
-                        </div> 
-                     </div>
-                     <!--Botoes-->
-                     <div class="row" style="padding: 20px;">
-                        <div class="col s6 push-s2">
-                          <a  id ="btn-voltar2" class="waves-effect waves-light btn red"
-                            routerLink="/diario-alimentar" routerLinkActive="active">Voltar</a>
-                        </div>
-                        <div class="col s6">
-                          <a class="waves-effect waves-light btn green"
-                          (click)="adicionarAlimento()"
-                           >Adicionar</a>
-                        </div>
-                      </div>    
-                </form>
-            </div>
-        </div>
-        <!--metade direita-->
-        <div class="col s12 m4 l4 push-m1 push-l1" style="padding: 20px 0 20px 0;">
-            <div>
-                <img class="responsive-img" src="/assets/resources/images/diet-plan.jpg" alt="plano-dieta">
-            </div>
-            <!--card-->
-            <div class="row">
-            <div class="card lime lighten-5">
-                <div class="card-content black-text">
-                  <p>Para Informações de valores nutricionais de alimentos
-                    consulte a Tabela Brasileira de Composição de alimentos TACO disponivel no link abaixo: 
-                  </p>
-                </div>
-                <div class="card-action">
-                  <a href="https://www.cfn.org.br/wp-content/uploads/2017/03/taco_4_edicao_ampliada_e_revisada.pdf" target="_blank">https://www.cfn.org.br/wp...</a>
-                </div>
+  <!--Linha Principal-->
+  <div class="row">
+    <!--metade esquerda-->
+    <div class="col s12 m8 l8">
+      <h5>Adicionar Alimento:</h5>
+      <div class="row" style="padding-top: 10px">
+        <form
+          class="col s12"
+          #formAlimento="ngForm"
+          (submit)="adicionarAlimento()"
+        >
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                id="nome-alimento"
+                name="nome-alimento"
+                type="text"
+                class="validate"
+                [(ngModel)]="alimento.nome"
+                (change)="buscarAlimentoPorNome(alimento.nome)"
+                (input)="buscarSugestoes(alimento.nome)"
+                #nome="ngModel"
+                pattern="^[A-Za-zÀ-ú]+(?:\s[A-Za-zÀ-ú]+)*$"
+                required
+              />
+              <label for="nome-alimento">Alimento:</label>
+              <div class="red-text" [hidden]="nome.valid || nome.untouched">
+                Digite um nome válido.
               </div>
-            </div>  
-        </div>
+              <div
+                class="red-text"
+                *ngIf="nome.errors?.['required'] && nome.touched"
+              >
+                O nome do alimento é obrigatório.
+              </div>
+              <ul
+               *ngIf="sugestoes.length > 0" class="sugestoes">
+                <li
+                  *ngFor="let sugestao of sugestoes"
+                  (click)="selecionarSugestao(sugestao)"
+                >
+                  {{ sugestao.nome }}
+                </li>
+              </ul>
+            </div>
+            <div class="input-field col s6">
+              <input
+                id="carboidrato"
+                name="carboidrato"
+                type="number"
+                step="0.1"
+                [(ngModel)]="alimento.carboidrato"
+                #carboidrato="ngModel"
+                pattern="^\d+(\.\d{1,2})?$"
+                required
+                lang="en-US"
+              />
+              <label
+                for="carboidrato"
+                [ngClass]="{ active: alimento.carboidrato !== null }"
+                >Carboidrato [g]</label
+              >
+              <div
+                class="red-text"
+                [hidden]="carboidrato.valid || carboidrato.untouched"
+              >
+                Digite um numero válido
+              </div>
+              <div
+                class="red-text"
+                *ngIf="carboidrato.errors?.['required'] && carboidrato.touched"
+              >
+                informe a quantidade de carboidrato.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                id="quantidade"
+                name="quantidade"
+                type="text"
+                [(ngModel)]="alimento.quantidade"
+                pattern="^[1-9]\d*$"
+                #quantidade="ngModel"
+                required
+              />
+              <label
+                [ngClass]="{ active: alimento.quantidade != null }"
+                for="quantidade"
+                >Quantidade [g]</label
+              >
+              <div
+                class="red-text"
+                [hidden]="quantidade.valid || quantidade.untouched"
+              >
+                Digite um numero válido somente inteiro
+              </div>
+              <div
+                class="red-text"
+                *ngIf="quantidade.errors?.['required'] && quantidade.touched"
+              >
+                informe a quantidade em g.
+              </div>
+            </div>
+            <div class="input-field col s6">
+              <input
+                id="proteina"
+                name="proteina"
+                type="number"
+                step="0.1"
+                [(ngModel)]="alimento.proteina"
+                #proteina="ngModel"
+                pattern="^\d+(\.\d{1,2})?$"
+                required
+              />
+              <label
+                for="proteina"
+                [ngClass]="{ active: alimento.proteina != null }"
+                >Proteinas [g]</label
+              >
+              <div
+                class="red-text"
+                [hidden]="proteina.valid || proteina.untouched"
+              >
+                Digite um numero válido
+              </div>
+              <div
+                class="red-text"
+                *ngIf="proteina.errors?.['required'] && proteina.touched"
+              >
+                informe a quantidade de proteinas.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <select
+                name="qualRefeicao"
+                [(ngModel)]="qualRefeicao"
+                required
+                #refeicao="ngModel"
+              >
+                <option value="" selected disabled>Escolha</option>
+                <option value="cafe-manha">Café da Manhã</option>
+                <option value="almoco">Almoço</option>
+                <option value="cafe-tarde">Café da Tarde</option>
+                <option value="jantar">jantar</option>
+              </select>
+              <label>Qual Refeição?</label>
+              <div
+                class="red-text"
+                *ngIf="formAlimento.touched && refeicao.pristine"
+              >
+                Informe uma refeicao
+              </div>
+            </div>
+            <div class="input-field col s6">
+              <input
+                id="gordura"
+                name="gordura"
+                [(ngModel)]="alimento.gordura"
+                type="number"
+                step="0.1"
+                #gordura="ngModel"
+                pattern="^\d+(\.\d{1,2})?$"
+                required
+              />
+              <label
+                for="gordura"
+                [ngClass]="{ active: alimento.gordura != null }"
+                >Gorduras [g]</label
+              >
+              <div
+                class="red-text"
+                [hidden]="gordura.valid || gordura.untouched"
+              >
+                Digite um numero válido
+              </div>
+              <div
+                class="red-text"
+                *ngIf="gordura.errors?.['required'] && gordura.touched"
+              >
+                informe a quantidade de gorduras.
+              </div>
+            </div>
+          </div>
+          <!--Botoes-->
+          <div class="row" style="padding: 20px">
+            <div class="col s6 push-s2">
+              <a
+                id="btn-voltar2"
+                class="waves-effect waves-light btn red"
+                (click)="voltarParaDiarioAlimentar(usuario)"
+                >Voltar <i class="material-icons right">replay</i></a
+              >
+            </div>
+            <div class="col s6">
+              <button
+                class="waves-effect waves-light btn green"
+                [disabled]="!formAlimento.valid || refeicao.pristine"
+                >
+                Adicionar <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+    <!--metade direita-->
+    <div class="col s12 m4 l4 push-m1 push-l1" style="padding: 20px 0 20px 0">
+      <div>
+        <img
+          class="responsive-img"
+          src="/assets/resources/images/diet-plan.jpg"
+          alt="plano-dieta"
+        />
+      </div>
+      <!--card-->
+      <div class="row">
+        <div class="card lime lighten-5">
+          <div class="card-content black-text">
+            <p>
+              Para Informações de valores nutricionais de alimentos consulte a
+              Tabela Brasileira de Composição de alimentos TACO disponivel no
+              link abaixo:
+            </p>
+          </div>
+          <div class="card-action">
+            <a
+              href="https://www.cfn.org.br/wp-content/uploads/2017/03/taco_4_edicao_ampliada_e_revisada.pdf"
+              target="_blank"
+              >https://www.cfn.org.br/wp...</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
