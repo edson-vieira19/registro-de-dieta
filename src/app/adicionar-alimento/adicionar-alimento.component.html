@@ -35,8 +35,7 @@
               >
                 O nome do alimento é obrigatório.
               </div>
-              <ul
-               *ngIf="sugestoes.length > 0" class="sugestoes">
+              <ul *ngIf="sugestoes.length > 0" class="sugestoes">
                 <li
                   *ngFor="let sugestao of sugestoes"
                   (click)="selecionarSugestao(sugestao)"
@@ -201,7 +200,7 @@
               <button
                 class="waves-effect waves-light btn green"
                 [disabled]="!formAlimento.valid || refeicao.pristine"
-                >
+              >
                 Adicionar <i class="material-icons right">send</i>
               </button>
             </div>

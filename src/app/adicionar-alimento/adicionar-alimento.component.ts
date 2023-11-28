@@ -33,8 +33,6 @@ export class AdicionarAlimentoComponent implements OnInit {
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
 
-    //estou inicialiazndo com null os campos numericos devido a problema de
-    // renderização do formulario
     this.alimento = new Alimento('', null, null, null, null);
 
     this.route.params.subscribe((params) => {
@@ -82,15 +80,6 @@ export class AdicionarAlimentoComponent implements OnInit {
           }
         });
 
-    // this.alimentoService
-    //   .salvarAlimentoNoDbJson(this.alimento)
-    //   .then((resultado) => {
-    //     console.log(resultado);
-    //   })
-    //   .catch((erro) => {
-    //     console.log('Erro ao salvar alimento');
-    //   });
-
     this.navigateService.navigateToDiarioAlimentar(this.usuario);
   }
 
@@ -105,7 +94,6 @@ export class AdicionarAlimentoComponent implements OnInit {
         this.preencherCampos(alimento[0]);
         console.log(alimento);
       } else {
-        // Limpar os campos se o alimento não for encontrado
         this.limparCampos();
       }
     });
@@ -119,7 +107,7 @@ export class AdicionarAlimentoComponent implements OnInit {
   }
 
   private limparCampos(): void {
-    // Limpar os campos do formulário
+    
     this.alimento.carboidrato = null;
     this.alimento.proteina = null;
     this.alimento.gordura = null;
