@@ -4,6 +4,7 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
+  OnDestroy,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,6 +13,7 @@ import { Usuario } from '../Model/usuario';
 import { UsuarioService } from '../services/usuario.service';
 import { AlimentoService } from '../services/alimento.service';
 import { NavigateService } from '../services/navigate.service';
+import { Subscription } from 'rxjs';
 
 declare var M: any;
 
@@ -20,8 +22,12 @@ declare var M: any;
   templateUrl: './diario-alimentar.component.html',
   styleUrls: ['./diario-alimentar.component.css'],
 })
-export class DiarioAlimentarComponent implements OnInit, AfterViewInit {
+export class DiarioAlimentarComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   @ViewChild('donutchart') donutChart!: ElementRef;
+
+  inscricao!: Subscription;
 
   usuario!: Usuario;
 
@@ -46,7 +52,6 @@ export class DiarioAlimentarComponent implements OnInit, AfterViewInit {
     private navigateService: NavigateService,
     private route: ActivatedRoute
   ) {
-
     //inicializacao das propriedades
     this.totalCaloriasConsumidas = 0;
     this.totalCaloriasAlmoco = 0;
@@ -60,7 +65,6 @@ export class DiarioAlimentarComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-
     //inicializacao do collapsible
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems, {
@@ -68,7 +72,7 @@ export class DiarioAlimentarComponent implements OnInit, AfterViewInit {
     });
 
     //id do usuario de acordo com a rota
-    this.route.params.subscribe((params) => {
+    this.inscricao = this.route.params.subscribe((params) => {
       const userId = +params['id'];
       this.usuario = this.service.buscarNoLocalStorage(userId.toString());
       this.caloricNeeds = this.usuario.necessidadeCalorica;
@@ -90,12 +94,9 @@ export class DiarioAlimentarComponent implements OnInit, AfterViewInit {
     this.calculaTotalCarboidrato();
     this.calculaTotalProteina();
     this.calculaTotalGordura();
-    
-
   } //fim do ngOnInit
 
   ngAfterViewInit(): void {
-    
     //inicializacao do grafico
     const ctx = this.donutChart.nativeElement.getContext('2d');
 
@@ -119,25 +120,28 @@ export class DiarioAlimentarComponent implements OnInit, AfterViewInit {
         maintainAspectRatio: false,
         plugins: {
           title: {
-              display: true,
-              text: 'Distribuição dos macronutrientes:',
-              padding: {
-                top: 0,
-                bottom:5
-            }
-          }
-      }
+            display: true,
+            text: 'Distribuição dos macronutrientes:',
+            padding: {
+              top: 0,
+              bottom: 5,
+            },
+          },
+        },
       },
     });
+  } // fim do afterViewInit
 
-  }// fim do afterViewInit
+  ngOnDestroy(): void {
+    this.inscricao.unsubscribe();
+  }
 
   navigateToAdicionarAlimento() {
     this.navigateService.navigateToAdicionarAlimento(this.usuario);
     this.service.imprimeConsole(this.usuario);
   }
 
-  navigateToAlterarAlimento(){
+  navigateToAlterarAlimento() {
     this.navigateService.navigateToAlterarAlimento(this.usuario);
   }
 

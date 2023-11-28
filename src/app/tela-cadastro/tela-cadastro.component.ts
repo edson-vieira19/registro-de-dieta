@@ -36,6 +36,9 @@ export class TelaCadastroComponent implements OnInit, AfterViewInit{
 
       this.usuarioService.salvar(this.usuario);
 
+      alert('Usuario cadastrado com sucesso! \n' + 'nome: ' + 
+      this.usuario.nome + ' email: ' + this.usuario.email)
+
       this.navigateService.navigateToDiarioAlimentar(this.usuario)
       
     }
