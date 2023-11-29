@@ -19,7 +19,16 @@ export class AlimentoService {
     return await lastValueFrom(obs);
   }
 
-  //retorna um alimento pelo nome
+  atualizarAlimentoNoDbJson(id: any, alimento: Alimento): Observable<any> {
+    const urlAtualizacao = `${this.url}/${id}`;
+    return this.http.put(urlAtualizacao, alimento);
+  }
+
+  excluirAlimentoDoDbJson(id: number): Observable<any> {
+    const urlExclusao = `${this.url}/${id}`;
+    return this.http.delete(urlExclusao);
+  }
+
   getAlimento(nome: string): Observable<any> {
     nome = nome.toLowerCase();
 

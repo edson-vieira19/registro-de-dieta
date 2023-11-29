@@ -12,6 +12,7 @@ import { AlimentoService } from '../services/alimento.service';
   styleUrls: ['./adicionar-alimento.component.css'],
 })
 export class AdicionarAlimentoComponent implements OnInit {
+  
   usuario!: Usuario;
 
   alimento!: Alimento;

@@ -6,12 +6,13 @@
     <h5>Alterar ou Excluir um Alimento:</h5>
     <div class="col s12 m8 l8">
       <div class="row" style="padding: 10px">
-        <form class="col s12" #formAlterarAlimento="ngForm">
+        <form class="col s12"
+         #form1="ngForm">
           <div class="row">
             <div class="input-field col s6">
               <input
-                id="nome"
-                nome="nome"
+                id="nome-alimento1"
+                name="nome-alimento1"
                 type="text"
                 class="validate"
                 [(ngModel)]="alimento.nome"
@@ -147,7 +148,7 @@
               <label>Qual Refeição?</label>
               <div
                 class="red-text"
-                *ngIf="formAlterarAlimento.touched && refeicao.pristine"
+                *ngIf="form1.touched && refeicao.pristine"
               >
                 Informe uma refeicao
               </div>

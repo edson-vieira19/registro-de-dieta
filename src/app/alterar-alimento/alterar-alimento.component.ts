@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class AlterarAlimentoComponent implements OnInit, OnDestroy {
 
-  inscricao!:Subscription;
+  inscricoes:Subscription[] = [];
 
   usuario!: Usuario;
 
@@ -35,16 +35,16 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    var elems = document.querySelectorAll('select');
+     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
 
     this.alimento = new Alimento('', null, null, null, null);
 
-    this.route.params.subscribe((params) => {
+      this.inscricoes.push(this.route.params.subscribe((params) => {
       //recupera id do usuario
       const userId = +params['id'];
       this.usuario = this.service.buscarNoLocalStorage(userId.toString());
-    });
+    }));
 
   } //fim onInit
 
@@ -53,19 +53,22 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-      this.inscricao.unsubscribe();
+      for(let inscricao of this.inscricoes){
+        inscricao.unsubscribe();
+      }
+
   }
 
   buscarAlimentoPorNome(nome: string): void {
     console.log(nome);
-    this.alimentoService.getAlimento(nome).subscribe((alimento) => {
+    this.inscricoes.push(this.alimentoService.getAlimento(nome).subscribe((alimento) => {
       if (alimento && alimento.length > 0) {
         this.preencherCampos(alimento[0]);
         console.log(alimento);
       } else {
         this.limparCampos();
       }
-    });
+    }));
   }
 
   private preencherCampos(alimento: any): void {
@@ -83,11 +86,12 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
 
   buscarSugestoes(termo: string): void {
     if (termo.length >= 1) {
-      this.alimentoService
+
+      this.inscricoes.push(this.alimentoService
         .getAlimentosSugestao(termo)
         .subscribe((sugestoes) => {
           this.sugestoes = sugestoes;
-        });
+        }));
     } else {
       this.sugestoes = [];
     }
@@ -99,6 +103,66 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
 
     this.buscarAlimentoPorNome(this.alimento.nome);
   }
+
+
+
+
+
+
+  atualizarAlimento() {
+    this.alimento.calculaCalorias();
+
+    switch (this.qualRefeicao) {
+      case 'cafe-manha':
+        this.usuario.cafeDaManha.alimentos.push(this.alimento);
+        break;
+      case 'almoco':
+        this.usuario.almoco.alimentos.push(this.alimento);
+        break;
+      case 'cafe-tarde':
+        this.usuario.cafeDaTarde.alimentos.push(this.alimento);
+        break;
+      case 'jantar':
+        this.usuario.jantar.alimentos.push(this.alimento);
+        break;
+    }
+    this.service.salvar(this.usuario);
+
+    this.alimento.nome = this.alimento.nome.toLowerCase();
+
+    this.alimentoService.getAlimento(this.alimento.nome)
+        .subscribe((alimentoExistente) => {
+          if (alimentoExistente.length > 0) {
+             
+            const id = alimentoExistente[0].id;
+
+            this.alimentoService.atualizarAlimentoNoDbJson(id, this.alimento)
+              
+            console.log('Alimento Atualizado');
+            
+          } else {
+            this.alimentoService
+              .salvarAlimentoNoDbJson(this.alimento)
+              .then((resultado) => {
+                console.log(resultado); 
+              })
+              .catch((erro) => {
+                console.log('Erro ao salvar alimento');
+              });
+          }
+        });
+
+    this.navigateService.navigateToDiarioAlimentar(this.usuario);
+  }
+
+
+
+
+
+
+
+
+
 
 
 }
