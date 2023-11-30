@@ -34,6 +34,13 @@ https://www.figma.com/file/vz1zpg18FFt2cU7hjemV9f/Registro-de-Dieta?type=design&
 
 
 
+#Manual de execução
+*Clonar o repositório com git clone
+*Abrir o projeto no editor Visual Studio Code (VS Code)
+*Abrir um terminal pelo VSCode ou qualquer terminal do seu Sistema Operacional apontando para o diretório raiz do projeto
+*Instalar as dependências contidas no package.json Comando: npm i
+*executar o json server json-server --watch db.json
+*Abrir um novo terminal pelo VSCode e então executar o projeto Angular Comando: ng serve -o
 
 
 
