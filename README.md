@@ -1,6 +1,7 @@
 # registro-de-dieta
 
-Este projeto tem o objetvo de construir uma aplicação web simples utilizando o FrameWork Angular, este projeto foi desenvolvido no contexto da disciplina de FrameWorks Web do curso de pos Graduação em Tecnologia Java da UTFPR.
+Este projeto tem o objetivo de construir uma aplicação web simples utilizando o FrameWork Angular, este projeto foi desenvolvido no contexto da disciplina de FrameWorks Web do curso de pos Graduação em Tecnologia Java da UTFPR.
+O objetivo da aplicação é permitir ao usuario registrar as refeições diárias, incluindo descrição, quantidade e alimentos consumidos. O usuário podera cadastrar os alimentos consumidos em cada uma das refeicoes principais, onde serão exibidas as informações nutricionais como carboidratos, proteínas e gorduras. A aplicação calcula a ingestão calórica por refeição e a necessidade calórica do usuário.
 
 # Protótipo das telas
 
