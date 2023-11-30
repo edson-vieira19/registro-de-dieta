@@ -45,7 +45,11 @@ export class AdicionarAlimentoComponent implements OnInit {
 
   //adiciona um alimento em um das refeições
   adicionarAlimento() {
+
     this.alimento.calculaCalorias();
+
+    this.alimento.nome = this.alimento.nome.toLowerCase();
+
     switch (this.qualRefeicao) {
       case 'cafe-manha':
         this.usuario.cafeDaManha.alimentos.push(this.alimento);

@@ -6,14 +6,11 @@ import * as M from 'materialize-css';
 @Component({
   selector: 'app-cabecalho',
   templateUrl: './cabecalho.component.html',
-  styleUrls: ['./cabecalho.component.css']
+  styleUrls: ['./cabecalho.component.css'],
 })
 export class CabecalhoComponent implements OnInit {
-
-ngOnInit(): void {
+  ngOnInit(): void {
     var elems = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(elems,{});
-}
-
-
+    M.Sidenav.init(elems, {});
+  }
 }

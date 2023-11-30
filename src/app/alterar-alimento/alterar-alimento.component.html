@@ -7,12 +7,14 @@
     <div class="col s12 m8 l8">
       <div class="row" style="padding: 10px">
         <form class="col s12"
-         #form1="ngForm">
+         #form1="ngForm"
+         (ngSubmit)="atualizarAlimento()"
+         >
           <div class="row">
             <div class="input-field col s6">
               <input
-                id="nome-alimento1"
-                name="nome-alimento1"
+                id="nome"
+                name="nome"
                 type="text"
                 class="validate"
                 [(ngModel)]="alimento.nome"
@@ -32,7 +34,8 @@
               >
                 O nome do alimento é obrigatório.
               </div>
-              <ul *ngIf="sugestoes.length > 0" class="sugestoes">
+              <ul
+               *ngIf="sugestoes.length > 0" class="sugestoes">
                 <li
                   *ngFor="let sugestao of sugestoes"
                   (click)="selecionarSugestao(sugestao)"
@@ -202,12 +205,20 @@
                 name="btn-excluir"
                 title="excluir um alimento"
                 class="waves-effect waves-light btn red btn-small"
+                (click)="excluiAlimento($event)"
               >
-                Excluir <i class="material-icons right">delete</i>
+                Excluir <i class="material-icons right"
+                >delete</i>
               </button>
             </div>
             <div class="col s4">
-              <button class="waves-effect waves-light btn btn-small green">
+              <button
+                id="btn-salvar"
+                nome="btn-salvar"
+                title="atualiza um alimento"
+               class="waves-effect waves-light btn btn-small green"
+               type="submit"
+               >
                 Salvar <i class="material-icons right">save</i>
               </button>
             </div>

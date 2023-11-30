@@ -1,13 +1,13 @@
 <div class="navbar-fixed" style="z-index: 1001 !important">
   <nav>
     <div class="nav-wrapper verde">
-      <a href="#!" class="brand-logo">
+      <a routerLink="login" class="brand-logo">
         <img class="logo" src="assets/resources/images/logo.jpeg" />
       </a>
       <span class="title brand-logo center hide-on-med-and-down">
         Registro de dieta
       </span>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+      <a routerLink="login" data-target="mobile-demo" class="sidenav-trigger"
         ><i class="material-icons">menu</i></a
       >
       <ul class="right hide-on-med-and-down">
@@ -23,14 +23,14 @@
   </nav>
 </div>
 
-
-<ul class="sidenav" style="margin-top: 55px; width: fit-content;"
- id="mobile-demo">
-  <li><a
-    routerLink="/login"
-    routerLinkActive="active"
-    class="flow-text">
-    Inicio
+<ul
+  class="sidenav"
+  style="margin-top: 55px; width: fit-content"
+  id="mobile-demo"
+>
+  <li>
+    <a routerLink="/login" routerLinkActive="active" class="flow-text">
+      Inicio
     </a>
   </li>
   <li><a routerLink="/sobre" class="flow-text">Sobre</a></li>

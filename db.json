@@ -57,13 +57,13 @@
       "calorias": 4
     },
     {
-      "id": 4,
       "nome": "arroz integral",
       "quantidade": "100",
-      "carboidrato": 22,
+      "carboidrato": 30,
       "proteina": 2,
       "gordura": 1,
-      "calorias": 105
+      "calorias": 137,
+      "id": 4
     },
     {
       "id": 5,
