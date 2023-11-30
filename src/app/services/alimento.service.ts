@@ -21,6 +21,7 @@ export class AlimentoService {
 
   atualizarAlimentoNoDbJson(id: any, alimento: Alimento): Observable<any> {
     const urlAtualizacao = `${this.url}/${id}`;
+    console.log('url atualizacao: ' + urlAtualizacao + 'alimento: ' + alimento.nome)
     return this.http.put(urlAtualizacao, alimento);
   }
 

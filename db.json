@@ -57,15 +57,6 @@
       "calorias": 4
     },
     {
-      "nome": "arroz integral",
-      "quantidade": "100",
-      "carboidrato": 30,
-      "proteina": 2,
-      "gordura": 1,
-      "calorias": 137,
-      "id": 4
-    },
-    {
       "id": 5,
       "nome": "bife de carne de boi",
       "quantidade": "150",
@@ -181,6 +172,33 @@
       "gordura": 6.5,
       "calorias": 120.1,
       "id": 17
+    },
+    {
+      "nome": "arroz branco",
+      "quantidade": "100",
+      "carboidrato": 28.1,
+      "proteina": 2.5,
+      "gordura": 0.2,
+      "calorias": 124.2,
+      "id": 18
+    },
+    {
+      "nome": "hamburger bovino",
+      "quantidade": "100",
+      "carboidrato": 6,
+      "proteina": 20,
+      "gordura": 17,
+      "calorias": 257,
+      "id": 19
+    },
+    {
+      "nome": "omelete de queijo",
+      "quantidade": "100",
+      "carboidrato": 0.4,
+      "proteina": 15.6,
+      "gordura": 22,
+      "calorias": 262,
+      "id": 20
     }
   ]
 }

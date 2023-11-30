@@ -1,17 +1,18 @@
 import { Alimento } from './../Model/alimento';
 import { Usuario } from './../Model/usuario';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from '../services/usuario.service';
 import { NavigateService } from '../services/navigate.service';
 import { AlimentoService } from '../services/alimento.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-adicionar-alimento',
   templateUrl: './adicionar-alimento.component.html',
   styleUrls: ['./adicionar-alimento.component.css'],
 })
-export class AdicionarAlimentoComponent implements OnInit {
+export class AdicionarAlimentoComponent implements OnInit, OnDestroy {
   
   usuario!: Usuario;
 
@@ -19,9 +20,9 @@ export class AdicionarAlimentoComponent implements OnInit {
 
   qualRefeicao!: string;
 
-  totalCalorias!: number;
-
   sugestoes: any[] = [];
+
+  inscricoes: Subscription[] =[];
 
   constructor(
     private service: UsuarioService,
@@ -36,11 +37,16 @@ export class AdicionarAlimentoComponent implements OnInit {
 
     this.alimento = new Alimento('', null, null, null, null);
 
-    this.route.params.subscribe((params) => {
-      //recupera id do usuario
+    this.inscricoes.push(this.route.params.subscribe((params) => {
       const userId = +params['id'];
       this.usuario = this.service.buscarNoLocalStorage(userId.toString());
-    });
+    }));
+  }
+
+  ngOnDestroy(): void {
+      for(let inscricao of this.inscricoes){
+        inscricao.unsubscribe();
+      }
   }
 
   //adiciona um alimento em um das refeições
@@ -66,7 +72,6 @@ export class AdicionarAlimentoComponent implements OnInit {
     }
     this.service.salvar(this.usuario);
 
-    //salva no db.json usando promisse
     this.alimento.nome = this.alimento.nome.toLowerCase();
 
     this.alimentoService.getAlimento(this.alimento.nome)
@@ -94,14 +99,14 @@ export class AdicionarAlimentoComponent implements OnInit {
 
   buscarAlimentoPorNome(nome: string): void {
     console.log(nome);
-    this.alimentoService.getAlimento(nome).subscribe((alimento) => {
+    this.inscricoes.push(this.alimentoService.getAlimento(nome).subscribe((alimento) => {
       if (alimento && alimento.length > 0) {
         this.preencherCampos(alimento[0]);
         console.log(alimento);
       } else {
         this.limparCampos();
       }
-    });
+    }));
   }
 
   private preencherCampos(alimento: any): void {
@@ -121,11 +126,11 @@ export class AdicionarAlimentoComponent implements OnInit {
 
   buscarSugestoes(termo: string): void {
     if (termo.length >= 1) {
-      this.alimentoService
+      this.inscricoes.push(this.alimentoService
         .getAlimentosSugestao(termo)
         .subscribe((sugestoes) => {
           this.sugestoes = sugestoes;
-        });
+        }));
     } else {
       this.sugestoes = [];
     }

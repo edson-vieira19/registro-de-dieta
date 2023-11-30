@@ -22,8 +22,6 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
 
   qualRefeicao!: string;
 
-  totalCalorias!: number;
-
   sugestoes: any[] = [];
 
   constructor(
@@ -53,7 +51,7 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    //fecha todos os subscribe
+    //fecha todos os subscribes
     for (let inscricao of this.inscricoes) {
       inscricao.unsubscribe();
     }
@@ -159,15 +157,16 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
 
     this.service.salvar(this.usuario);
 
+    this.alimento.nome = this.alimento.nome.toLowerCase();
+
     //caso ja exista atualiza no "banco"
-    this.inscricoes.push(
-      this.alimentoService
+        this.alimentoService
         .getAlimento(this.alimento.nome)
         .subscribe((alimentoExistente) => {
           if (alimentoExistente.length > 0) {
-            const id = alimentoExistente[0].id;
+            var id = alimentoExistente[0].id;
             console.log(alimentoExistente[0]);
-            console.log('id do alimento: ' + alimentoExistente[0].id);
+            console.log('id do alimento: ' + id);
             this.inscricoes.push(
               this.alimentoService
                 .atualizarAlimentoNoDbJson(id, this.alimento)
@@ -176,6 +175,7 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
                 })
             );
           } else {
+
             this.alimentoService
               .salvarAlimentoNoDbJson(this.alimento)
               .then((resultado) => {
@@ -185,8 +185,7 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
                 console.log('Erro ao salvar alimento');
               });
           }
-        })
-    );
+        });
 
     this.navigateService.navigateToDiarioAlimentar(this.usuario);
 
@@ -246,11 +245,7 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
 
     } //fim switch-case
 
-
-   /* 
-    Para excluir um alimento do bd.json também
-
-    this.inscricoes.push(
+    //Para excluir um alimento do bd.json também
       this.alimentoService
         .getAlimento(this.alimento.nome)
         .subscribe((alimentoExistente) => {
@@ -266,9 +261,7 @@ export class AlterarAlimentoComponent implements OnInit, OnDestroy {
           } else {
             console.log('alimento nao excluido')
           }
-        })
-    ); */
-
+        });
 
       this.navigateService.navigateToDiarioAlimentar(this.usuario)
 

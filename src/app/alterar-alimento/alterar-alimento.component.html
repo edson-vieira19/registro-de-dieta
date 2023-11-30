@@ -8,7 +8,7 @@
       <div class="row" style="padding: 10px">
         <form class="col s12"
          #form1="ngForm"
-         (ngSubmit)="atualizarAlimento()"
+         (submit)="atualizarAlimento()"
          >
           <div class="row">
             <div class="input-field col s6">
@@ -24,7 +24,7 @@
                 pattern="^[A-Za-zÀ-ú]+(?:\s[A-Za-zÀ-ú]+)*$"
                 required
               />
-              <label for="nome-alimento">Alimento:</label>
+              <label for="nome">Alimento:</label>
               <div class="red-text" [hidden]="nome.valid || nome.untouched">
                 Digite um nome válido.
               </div>
