@@ -7,7 +7,7 @@ O objetivo da aplicação é permitir ao usuario registrar as refeições diári
 
 https://www.figma.com/file/vz1zpg18FFt2cU7hjemV9f/Registro-de-Dieta?type=design&node-id=0-1&mode=design
 
-#Endereço de Deploy - GitHub Pages
+# Endereço de Deploy - GitHub Pages
 
 https://edson-vieira19.github.io/fw-registro-de-dieta
 
