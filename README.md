@@ -12,7 +12,7 @@ https://www.figma.com/file/vz1zpg18FFt2cU7hjemV9f/Registro-de-Dieta?type=design&
 https://edson-vieira19.github.io/fw-registro-de-dieta
 
 # Checklist
-**Feito:**
+
 - [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 - [X] Utilizar componentes de um framework CSS, como Bootstrap, Materialize ou outro à sua escolha.
 - [X] Apresentar as telas com layout responsivo, adaptando-se a diferentes tamanhos de tela, usando um framework CSS ou implementações personalizadas.
@@ -36,7 +36,7 @@ https://edson-vieira19.github.io/fw-registro-de-dieta
 
 
 
-#Manual de execução
+# Manual de execução
 *Clonar o repositório com git clone
 *Abrir o projeto no editor Visual Studio Code (VS Code)
 *Abrir um terminal pelo VSCode ou qualquer terminal do seu Sistema Operacional apontando para o diretório raiz do projeto
